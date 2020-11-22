@@ -9,11 +9,11 @@ public class Student {
 	private String status = "negative";
 	static int count=0;
 	
-	public Student(String surnmae, String name, int parentphone , String gender) {
+	public Student(String surname, String name, int parentphone , String gender) {
 		super();
 		count++;
 		this.id = count;
-		this.surnmae = surnmae;
+		this.surname = surname;
 		this.name = name;
 		this.parentphone = parentphone;
 		this.gender = gender;
@@ -30,11 +30,11 @@ public class Student {
 
 
 
-	public String getSurnmae() {
-		return surnmae;
+	public String getSurname() {
+		return surname;
 	}
 
-	public void setSurnmae(String surnmae) {
+	public void setSurname(String surname) {
 		this.surnmae = surnmae;
 	}
 
@@ -72,7 +72,7 @@ public class Student {
 	
 	@Override
 	public String toString() {
-		return "Student [surnmae=" + surnmae + ", name=" + name + ", id=" + id + "]";
+		return "Student [surname=" + surname + ", name=" + name + ", id=" + id + "]";
 	}
 	
 	
