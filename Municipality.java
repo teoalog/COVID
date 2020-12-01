@@ -5,10 +5,12 @@ public class Municipality {
     public String municipality;
     public int casesinmunicipality = 0;
     public int closedschools = 0;
-    private static int count;
+    private static int count; /*Μετρητής δήμων*/
     protected static Municipality[] allmunicipalities = new Municipality[100000];
     
-    	public Municipality(School [] allschools, String municipality, int casesinmunicipality, int closedschools ) {
+    	/*Κατασκευαστής αντικειμένων Municipality*/
+	
+	public Municipality(School [] allschools, String municipality, int casesinmunicipality, int closedschools ) {
     		this.allschools = allschools;
     		this.municipality = municipality;
     		this.casesinmunicipality = casesinmunicipality;
@@ -17,6 +19,8 @@ public class Municipality {
     		count ++;
     	}
     	
+	/*Μέθοδος που ειδοποιεί το δήμο για κλείσιμο σχολείου*/
+	
     	static boolean closed = false;
     	static String area = "";
     	public static void makeAnnouncemet(boolean closed, String area) {
