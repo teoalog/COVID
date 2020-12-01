@@ -1,14 +1,14 @@
 
 public class Municipality {
 	
-	protected static School [] allschools = new School[10000];
+protected static School [] allschools = new School[10000]; /*all schools of a municipality are saved in an array */
     public String municipality;
-    public int casesinmunicipality = 0;
-    public int closedschools = 0;
-    private static int count; /*Μετρητής δήμων*/
-    protected static Municipality[] allmunicipalities = new Municipality[100000];
+    public int casesinmunicipality = 0; /*total number of cases in a municipality*/
+    public int closedschools = 0; /*number of closed schools in a municipality*/
+    private static int count; /*number of municipalities*/
+    protected static Municipality[] allmunicipalities = new Municipality[100000];/*all municipalities are saved in an array*/
     
-    	/*Κατασκευαστής αντικειμένων Municipality*/
+    
 	
 	public Municipality(School [] allschools, String municipality, int casesinmunicipality, int closedschools ) {
     		this.allschools = allschools;
@@ -19,7 +19,7 @@ public class Municipality {
     		count ++;
     	}
     	
-	/*Μέθοδος που ειδοποιεί το δήμο για κλείσιμο σχολείου*/
+	/*informs the municipality in case of school's closing*/
 	
     	static boolean closed = false;
     	static String area = "";
