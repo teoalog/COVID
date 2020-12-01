@@ -3,11 +3,10 @@ public class Hospital {
 
 	public String nameofhospital;
 	public char area;
-	protected static Hospital [] allhospitals = new Hospital[100000];
-	private static int count; /*Μετρητής νοσοκομείων*/
+	protected static Hospital [] allhospitals = new Hospital[100000]; /*alla hospitals are saved in an array*/
+	private static int count; /*counts the number of hospitals*/
 	
-	/*Κατασκευαστής αντικειμένων hospital*/
-	
+
 	public Hospital(String nameofhospital, char area) {
 		this.nameofhospital = nameofhospital;
 		this.area =  area;
@@ -15,8 +14,7 @@ public class Hospital {
 		count++;
 	}
 	
-	/*Εύρεση νοσοκομείου με βάση την περιοχή*/
-	
+	/*finds the nearest hospital for the patient*/
 	public static void findHospital(int area) {
 		boolean flag = false;
 	for	(int i = 0; i < allhospitals.length; i++) {
