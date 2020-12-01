@@ -3,14 +3,14 @@ public class School {
 	public int casesinschool = 0;
 	public char  area;
 	public String nameofschool;
-	public static School[] allschools = new School[100000];
-	private static int count; /*Mετρέι τα σχολεία*/
+	public static School[] allschools = new School[100000]; /*all schools are saved in an array*/
+	private static int count; /*It shows the number of schools*/
 	public int schoolid;
-	public Student[] allstudents = new Student[10000];
-	public Teacher[] faculty = new Teacher[70];
-	public static boolean schoolisclosed = false;
+	public Student[] allstudents = new Student[10000]; /*all students of a school are saved in an array*/
+	public Teacher[] faculty = new Teacher[70];/*all teachers of a school are saved in ana array*/
+	public static boolean schoolisclosed = false; /*shows whether a school is closed or not*/
 	
-        /*Κατασκευαστής αντικειμένων School* / 	
+        	
 	
 	public School(char area, String nameofschool, Class classes, Teacher faculty, int casesinaschool, Student[] allstudents, boolean schoolisclosed) {
 		this.area = area;
@@ -23,7 +23,7 @@ public class School {
 		count ++;
 	}
 
-	/*Μέθοδος εύρεσης σχολείου στο οποίο φοιτά ή εργάζεται το κρούσμα*/
+	/*returns the school in which the case exists*/
 	
 	public static int findSchool(int code) {
 		int i = 0;
@@ -39,7 +39,7 @@ public class School {
 			
 	}
 	
-	/*Μέθοδος εύρεσης μαθητή-κρούσματος*/
+	/*returns the student-case*/
 	
 	public static Student findStudent(int x, int amka) {
 		int i = 0;
@@ -55,7 +55,7 @@ public class School {
 			
 	}
 	
-	/*Μέθοδος εύρεσης καθηγητή-κρούσματος*/
+	/*returns the teacher-case*/
 	
 	public static Teacher findTeacher(int x, int amka) {
 		int i = 0;
@@ -71,11 +71,11 @@ public class School {
 			
 	}
 	
-	/*Μέθοδος που αυξάνει τα συνολικά κρούσματα στο σχολείο και*/ 
+	/*increases the total number of cases in a school*/ 
 	
 	public static void addCaseInSchool(int x) {
 		allschools[x].casesinschool ++;
-		if (allschools[x].casesinschool > 6) {  /*Συνθήκη που καθαρίζει αν θα κλείσει το σχολείο*/
+		if (allschools[x].casesinschool > 6) {  
 			schoolisclosed = true;
 			
 		}
