@@ -1,20 +1,16 @@
-
 public class Eody {
-	public School[] allschools = new School[1000000000];
-	public static int totalcases = 0;
-	public static int numberofclosedschools = 0;
+	private static Eody eody = null;
+	public int totalcases;
 	
-	public Eody(School[] allschools, int totalcases, int numberofclosedschools) {
-		this.allschools = allschools;
-		this.numberofclosedschools = numberofclosedschools;
-		this.totalcases = totalcases;
+	private Eody() {
+	 totalcases = 0;
 	}
-
-	public static void addCase() {
-		totalcases ++;
-	}
-	
-	public static void addClosedSchool() {
-		numberofclosedschools ++;
-	}
+   public static Eody getInstance() {
+	   if (null == eody) {
+		   eody = new Eody();
+	   }
+	   return eody;
+   }
 }
+
+
