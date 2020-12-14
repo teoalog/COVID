@@ -1,38 +1,43 @@
 package covid;
 
+import java.util.ArrayList;
+
 public class Grade {
 	
-	private String name;
-	private int cases=0;
-	protected Class classes[] = new Class[100];
+	private int id;
+	private int cases=0; // τα κρουσματα μιας ταξης.
+	protected ArrayList<Class> classes = new ArrayList<Class>(); // τα τμηματα που εχει μια ταξη αποθηκευονται σε list
+	protected static ArrayList<Grade> allgrades = new ArrayList<Grade>();
 	
 	
-	public Grade(String name) {
+	public Grade(int id) {
 		super();
-		this.name = name;
+		this.id = id;
+		allgrades.add(this);
 	}
 
 	public int getCases() {
 		return cases;
 	}
 	
-	public void setCases(Class classes[]) {
+	public void setCases(Class classes[]) { //αναλογα με τα κρουσματα καθε τμηματος μετραει 
+		                                   //τα συνολικα κρουσματα της ταξης.
 		for(int i=0; i<classes.length; i++) {
 			cases = cases + classes[i].getCases();
 		}
 	}
 
-	public String getName() {
-		return name;
+	public int getId() {
+		return id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(int id) {
+		this.id = id;
 	}
 
 	@Override
 	public String toString() {
-		return "Grade [name=" + name + ", cases=" + cases + "]";
+		return "Grade [id=" + id + ", cases=" + cases + "]";
 	}
 	
 	
