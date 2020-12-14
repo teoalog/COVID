@@ -1,20 +1,24 @@
 package covid;
 
+import java.util.ArrayList;
+
 public class Class {
 	
-	protected Student students[] = new Student[100];
-	protected Teacher teachers[] = new Teacher[100];
-	private Grade grade;
-	private int number;
-	private int cases=0;
+	protected ArrayList<Student> students = new ArrayList<Student>();  // καθε μαθητης που ειναι σε ενα τμημα
+	                                                 //αποθηκευονται σε list.
+	protected ArrayList<Teacher> teachers = new ArrayList<Teacher>();  // καθε καθηγητς που διδασκει σε ενα τμημα	                                                 // αποθηκευονται σε πινακα.
+	private int id ;
+	private int cases=0; //τα κρουσματα ενος τμηματος.
+	protected static ArrayList<Class> allclasses = new ArrayList<Class>();
 	
-	public Class(Grade grade, int number) {
+	public Class( int id) {
 		super();
-		this.grade = grade;
-		this.number = number;
+		this.id = id;
+		allclasses.add(this);
 	}
 
-	public void setCases(Student students[] ,Teacher teachers[]) {
+	public void setCases(Student students[] ,Teacher teachers[]) { //αναλογα με το status του καθε μαθητη 
+		                                                           //ή καθηγητη μετραει τα κρουσματα του τμηματος.
 		for(int i=0; i<students.length; i++) {
 			if (students[i].getStatus().contentEquals("positive")) {
 				cases++;
@@ -31,27 +35,25 @@ public class Class {
 		return cases;
 	}
 
-	public Grade getGrade() {
-		return grade;
+		
+	public int getId() {
+		return id;
 	}
 
-	public void setGrade(Grade grade) {
-		this.grade = grade;
-	}
-
-	public int getNumber() {
-		return number;
-	}
-
-	public void setNumber(int number) {
-		this.number = number;
-	}
-
-	@Override
-	public String toString() {
-		return "Class [grade=" + grade + ", number=" + number + ", cases=" + cases + "]";
+	public void setName(int id) {
+		this.id = id;
 	}
 	
+		@Override
+	public String toString() {
+		return "Class [id=" + id + "]";
+	}
+		
+			
+		
+
+	
+			
 	
 
 }
