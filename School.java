@@ -1,83 +1,130 @@
 
+import java.util.ArrayList;
+import java.time.LocalDate;
+
 public class School {
-	public int casesinschool = 0;
-	public char  area;
-	public String nameofschool;
-	public static School[] allschools = new School[100000]; /*all schools are saved in an array*/
-	private static int count; /*It shows the number of schools*/
-	public int schoolid;
-	public Student[] allstudents = new Student[10000]; /*all students of a school are saved in an array*/
-	public Teacher[] faculty = new Teacher[70];/*all teachers of a school are saved in ana array*/
-	public static boolean schoolisclosed = false; /*shows whether a school is closed or not*/
+	public static ArrayList<School> allschools = new ArrayList<School>();
+	private int casesinschool = 0;
+	private char  area;
+	private String nameofschool;
+	protected static ArrayList <Student> allstudents = new ArrayList <Student>();
+	protected static ArrayList <Teacher> faculty = new ArrayList <Teacher>();
+	private static int count;
+	private int schoolid;
+	private static boolean schoolisclosed = false;
+	protected ArrayList<LocalDate> datesofcases = new ArrayList<LocalDate>();
 	
-        	
+	//Constructor of School objects
 	
-	public School(char area, String nameofschool, Class classes, Teacher faculty, int casesinaschool, Student[] allstudents, boolean schoolisclosed) {
+	public School(char area, String nameofschool, ArrayList<Student> allstudents,  
+			ArrayList<Teacher> faculty, int casesinaschool, boolean schoolisclosed, ArrayList datesofcases) {
 		this.area = area;
 		this.nameofschool = nameofschool;
-		classes = new Class[30];
-		this.faculty = faculty;
 		this.allstudents = allstudents;
+		this.faculty = faculty;
 		this.schoolisclosed = schoolisclosed;
-		allschools[count] = this;
+		this.casesinschool = casesinschool;
+		this.datesofcases = datesofcases;
+		allschools.set(count, this);
 		count ++;
 	}
-
-	/*returns the school in which the case exists*/
 	
-	public static int findSchool(int code) {
+	public int getCasesinschool() {
+		return casesinschool;
+	}
+	
+	public void setCasesinschool(int casesinschool) {
+		this.casesinschool = casesinschool;
+	}
+
+	public char getArea() {
+		return area;
+	}
+	
+	public void setArea(char area) {
+		this.area = area;
+	}
+	
+	public String getNameofschool() {
+		return nameofschool;
+	}
+	
+	public void setNameofschool(String nameofschool) {
+		this.nameofschool = nameofschool;
+	}
+	
+	public int getSchoolid() {
+		return schoolid;
+	}
+	
+	public void setSchoolid(int schoolid) {
+		this.schoolid =schoolid;
+	}
+	
+	public boolean getSchoolisclosed() {
+		return schoolisclosed;
+	}
+	
+	public void setSchoolisclosed(boolean schoolisclosed) {
+		this.schoolisclosed = schoolisclosed;
+	}
+	
+	public String toString() {
+		return area + " " + nameofschool + " " + schoolid + " " + schoolisclosed;
+	}
+	
+	/*This method finds in which school the student/teacher
+	 * who was diagnosed with covid studies/works
+	 */
+	
+	public static int findSchool(int sid) {
 		int i = 0;
 		boolean flag = false;
-		while (i < allschools.length && flag == false ); {
-			if (allschools[i].schoolid == code) {
+		while (i < allschools.size() && flag == false ); {
+	             if (allschools.get(i).schoolid == sid) {
 				flag = true;
 				return i;
 			}
 			i ++;
 		}
-		
-			
+		if (flag == false); {
+			return -1;
+		}
 	}
 	
-	/*returns the student-case*/
-	
-	public static Student findStudent(int x, int amka) {
-		int i = 0;
+	/*This method removes the inactive cases of a school
+	 * from the array list
+	 */
+	public static void checkDates(int id) {
 		boolean flag = false;
-		while (i < allschools[x].allstudents.length && flag == false ); {
-			if (allschools[x].allstudents[i].amka == amka) {
+		int i = 0;
+		LocalDate date = LocalDate.now();
+		while (i < allschools.size() && flag == false) {
+			if (allschools.get(i).schoolid == id) {
+				for (int j = 0; j < allschools.get(i).datesofcases.size(); j++) {
+					if (date.compareTo(allschools.get(i).datesofcases.get(j)) > 14 ) {
+						allschools.get(i).datesofcases.remove(j);
+						allschools.get(i).casesinschool = allschools.get(i).casesinschool - 1;
+					}
+				}
 				flag = true;
-				return allschools[x].allstudents[i];
 			}
 			i ++;
 		}
 		
-			
 	}
 	
-	/*returns the teacher-case*/
-	
-	public static Teacher findTeacher(int x, int amka) {
-		int i = 0;
-		boolean flag = false;
-		while (i < allschools[x].faculty.length && flag == false ); {
-			if (allschools[x].faculty[i].amka == amka) {
-				flag = true;
-				return allschools[x].faculty[i];
-			}
-			i ++;
-		}
-		
-			
-	}
-	
-	/*increases the total number of cases in a school*/ 
-	
+	/*This method increases the total amount of
+	 * cases in a school
+	 */
 	public static void addCaseInSchool(int x) {
-		allschools[x].casesinschool ++;
-		if (allschools[x].casesinschool > 6) {  
+		if (x != -1) {
+		checkDates(allschools.get(x).schoolid);	
+		allschools.get(x).casesinschool ++;
+		allschools.get(x).datesofcases.add(LocalDate.now());
+		if (allschools.get(x).casesinschool > 5) {
 			schoolisclosed = true;
-			
-		}
-		
-	} 
+			}
+		} 
+	}	
+}
