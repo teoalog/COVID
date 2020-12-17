@@ -1,41 +1,69 @@
 
+import java.util.ArrayList;
 public class Municipality {
 	
-protected static School [] allschools = new School[10000]; /*all schools of a municipality are saved in an array */
-    public String municipality;
-    public int casesinmunicipality = 0; /*total number of cases in a municipality*/
-    public int closedschools = 0; /*number of closed schools in a municipality*/
-    private static int count; /*number of municipalities*/
-    protected static Municipality[] allmunicipalities = new Municipality[100000];/*all municipalities are saved in an array*/
+	protected ArrayList<School> schools = new ArrayList<School>();
+    private String municipality;
+    private int casesinmunicipality = 0;
+    private int closedschools = 0;
+    private static int count = 0;
+    protected static ArrayList<Municipality> allmunicipalities = new ArrayList<Municipality>();
     
-    
-	
-	public Municipality(School [] allschools, String municipality, int casesinmunicipality, int closedschools ) {
-    		this.allschools = allschools;
+    	public Municipality(ArrayList schools, String municipality, int casesinmunicipality, int closedschools ) {
+    		this.schools = schools;
     		this.municipality = municipality;
     		this.casesinmunicipality = casesinmunicipality;
     		this.closedschools = closedschools;
-    		allmunicipalities[count] = this;
+    		allmunicipalities.set(count,this);
     		count ++;
     	}
     	
-	/*informs the municipality in case of school's closing*/
-	
-    	static boolean closed = false;
-    	static String area = "";
-    	public static void makeAnnouncemet(boolean closed, String area) {
+    	public String getMunicipality() {
+    		return municipality;
+    	}
+    	
+    	public void setMunicipality(String municipality) {
+    		this.municipality = municipality;
+    	}
+    	
+    	public int getCasesinmunicipality() {
+    		return casesinmunicipality;
+    	}
+    	
+    	public void setCasesinmunicipality(int casesinmunicipality) {
+    		this.casesinmunicipality = casesinmunicipality;
+    	}
+    	
+    	public int getClosedschools() {
+    		return closedschools;
+    	}
+    	
+    	public void setClosedschools(int closedschools) {
+    		this.closedschools = closedschools;
+    	}
+    	
+  
+    	/*This method informs a municipality about whether or
+    	 * not one of its schools is closed
+    	 */
+    	static int id = -1;
+    	public static void makeAnnouncement( int id) {
     		int i = 0;
-    		boolean flag = false;
-    		while (i < allmunicipalities.length && flag == false) {
-    			if (allmunicipalities[i].municipality.equalsIgnoreCase(area)) {
-    				int j = 0;
-    				boolean flag2 = false;
-    				while (j < allmunicipalities[i].allschools.length && flag == false) {
-    					if ()
+    		boolean flag1 = false;
+    		while (i < allmunicipalities.size() && flag1 == false) {
+    			int j = 0;
+    			boolean flag2 = false;
+    			while (j < allmunicipalities.get(i).schools.size() && flag2 == false) {
+    				if (allmunicipalities.get(i).schools.get(j).getSchoolid() == id &&  allmunicipalities.get(i).schools.get(j).getSchoolisclosed() == true) {
+    					System.out.println("Το σχολείο " + allmunicipalities.get(i).schools.get(j).getNameofschool() + "είναι κλειστό");
+    					allmunicipalities.get(i).closedschools ++;
+    					flag2 = true;
+    					flag1 = true;
     				}
+    				j ++;
     			}
+    			i ++;
     		}
-    		
     		
     		
     	}
