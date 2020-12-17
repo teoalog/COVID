@@ -11,12 +11,12 @@ public class Eody {
 	   }
 	   return eody;
    }
-	public int getTotalcases() {
+   public int getTotalcases() {
 	  return totalcases;
-  }
+   }
 
   public void addCaseToEody() {
 	  totalcases = totalcases + 1;
+  }
+
 }
-
-
