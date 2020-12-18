@@ -9,8 +9,7 @@ public class Municipality {
     private static int count = 0;
     protected static ArrayList<Municipality> allmunicipalities = new ArrayList<Municipality>();
     
-    	public Municipality(ArrayList schools, String municipality, int casesinmunicipality, int closedschools ) {
-    		this.schools = schools;
+    	public Municipality(String municipality, int casesinmunicipality, int closedschools ) {
     		this.municipality = municipality;
     		this.casesinmunicipality = casesinmunicipality;
     		this.closedschools = closedschools;
