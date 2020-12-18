@@ -9,10 +9,8 @@ public class Class {
 	private String name;
 	protected static ArrayList<Class> allclasses = new ArrayList<Class>();
 	
-	public Class( int id, ArrayList students, ArrayList teachers, String name) {
+	public Class( int id, String name) {
 		super();
-		this.students = students;
-		this.teachers = teachers;
 		this.id = id;
 		this.name = name;
 		allclasses.add(this);
