@@ -16,15 +16,11 @@ public class School {
 	
 	//Constructor of School objects
 	
-	public School(char area, String nameofschool, ArrayList<Student> allstudents,  
-			ArrayList<Teacher> faculty, int casesinaschool, boolean schoolisclosed, ArrayList datesofcases) {
+	public School(char area, String nameofschool, int casesinaschool, boolean schoolisclosed) {
 		this.area = area;
 		this.nameofschool = nameofschool;
-		this.allstudents = allstudents;
-		this.faculty = faculty;
 		this.schoolisclosed = schoolisclosed;
 		this.casesinschool = casesinschool;
-		this.datesofcases = datesofcases;
 		allschools.set(count, this);
 		count ++;
 	}
