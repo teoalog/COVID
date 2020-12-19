@@ -1,3 +1,5 @@
+package src.main.java.com.myteam.covidproject;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.LocalDate;

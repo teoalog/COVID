@@ -1,3 +1,4 @@
+package src.main.java.com.myteam.covidproject;
 
 import java.util.ArrayList;
 import java.time.LocalDate;

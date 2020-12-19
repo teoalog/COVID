@@ -1,5 +1,7 @@
+package src.main.java.com.myteam.covidproject;
 
 import java.util.ArrayList;
+
 public class Municipality {
 	
 	protected ArrayList<School> schools = new ArrayList<School>();
