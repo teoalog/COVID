@@ -35,8 +35,8 @@
               <archive>
                 <manifest>
                   <mainClass>
-                    com.myteam.covidproject.
-                  </mainClass>Menu
+                    GUI
+                  </mainClass>
                 </manifest>
               </archive>
               <descriptorRefs>

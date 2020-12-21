@@ -1,6 +1,6 @@
-package src.main.java.com.myteam.covidproject;
+package src.main.java;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class Menu {
 

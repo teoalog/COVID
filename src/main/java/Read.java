@@ -1,10 +1,10 @@
-package src.main.java.com.myteam.covidproject;
+package src.main.java;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;//interface 
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Read {
@@ -21,7 +21,7 @@ public class Read {
 					System.out.println(s);
 				}else if(choise.contentEquals("Teacher")){//��� ���������. 
 					String ar[] = line.split(",", 5);
-					Teacher t = new Teacher(ar[1],ar[2],Integer.parseInt(ar[0]),ar[3],ar[4]); 
+					Teacher t = new Teacher(ar[1],ar[2],Integer.parseInt(ar[0]),ar[3],ar[4]);
 					System.out.println(t);
 				}
 				line = br.readLine(); //�������� ������� ������.
