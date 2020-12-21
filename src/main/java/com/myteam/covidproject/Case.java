@@ -1,3 +1,10 @@
+/*
+ * Case
+ *
+ * Copyright 2020 Informaniacs/Athens University of Economics and Business (AUEB)
+ */
+
+
 package src.main.java.com.myteam.covidproject;
 
 import java.util.ArrayList;
@@ -6,28 +13,30 @@ import java.time.LocalDate;
 
 public class Case {
 	
-	public static ArrayList<Case> totalcasesList = new ArrayList<Case>();
-	int numofcases = 0;
-	int girls = 0;
-	int boys = 0;
-	private int idofcase;
+	private int idOfCase;
 	private LocalDate date;
 	private String gender;
+
+	public static ArrayList<Case> totalCasesList = new ArrayList<Case>();
+
+	int numOfCases = 0;
+	int girls = 0;
+	int boys = 0;
 	
-	public Case(int idofcase, LocalDate date, String gender) {
-		this.idofcase = idofcase;
+	public Case(int idOfCase, LocalDate date, String gender) {
+		this.idOfCase = idOfCase;
 		this.date = date;
 		this.gender = gender;
 		totalcasesList.add(this);
-		numofcases ++;
+		numofcases++;
 	}
 	
 	public int getId() {
-		return idofcase;
+		return idOfCase;
 	}
 	
-	public void setId(int idofcase) {
-		this.idofcase =idofcase;
+	public void setId(int idOfCase) {
+		this.idOfCase =idOfCase;
 	}
 	
 	public LocalDate getDate() {
@@ -42,13 +51,10 @@ public class Case {
 		return gender;
 	}
 	
-	public void setGender(String gender) {
-		this.gender = gender;
+	public String toString() {
+		return idOfCase + " " + date + " " + gender;
 	}
 	
-	public String toString() {
-		return idofcase + " " + date + " " + gender;
-	}
 	public static void readOption() {
 		int cont = 1;
 		int id = 0;
