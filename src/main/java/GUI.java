@@ -26,7 +26,6 @@ public class GUI {
 					GUI window = new GUI();
 					window.frmCovidSchoolApp.setVisible(true);
 					window.initialize();
-					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -68,7 +67,7 @@ public class GUI {
 		JMenu mnNewMenu_1 = new JMenu("About COVID-19");
 		menuBar.add(mnNewMenu_1);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("General information");
+		JMenu mntmNewMenuItem = new JMenu("General information");
 		mntmNewMenuItem.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -78,7 +77,7 @@ public class GUI {
 		});
 		mnNewMenu_1.add(mntmNewMenuItem);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Related with Education");
+		JMenu mntmNewMenuItem_1 = new JMenu("Related with Education");
 		mntmNewMenuItem_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -91,7 +90,7 @@ public class GUI {
 		JMenu mnNewMenu = new JMenu("Statistics");
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Maps");
+		JMenu mntmNewMenuItem_2 = new JMenu("Maps");
 		mntmNewMenuItem_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -107,7 +106,7 @@ public class GUI {
 		});
 		mnNewMenu.add(mntmNewMenuItem_2);
 		
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Graphs");
+		JMenu mntmNewMenuItem_3 = new JMenu("Graphs");
 		mntmNewMenuItem_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

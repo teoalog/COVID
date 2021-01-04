@@ -35,7 +35,8 @@ public class Grade {
 
 	@Override
 	public String toString() {
-		return "Grade [id=" + id + ", cases=" + cases + "]";
+		String s = "Grade";
+		return "ID: " + id + "/n Cases: " + cases;
 	}
 	
 	

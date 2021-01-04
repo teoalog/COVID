@@ -8,6 +8,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class Case {
 	
 	private int idOfCase;
@@ -17,8 +19,8 @@ public class Case {
 	public static ArrayList<Case> totalCasesList = new ArrayList<Case>();
 
 	int numOfCases = 0;
-	int girls = 0;
-	int boys = 0;
+	int women = 0;
+	int men = 0;
 	
 	public Case(int idOfCase, LocalDate date, String gender) {
 		this.idOfCase = idOfCase;
@@ -49,20 +51,21 @@ public class Case {
 	}
 	
 	public String toString() {
-		return idOfCase + " " + date + " " + gender;
+		String s = "Case";
+		return "ID of Case: " + idOfCase + "Gender: " + gender + "Date: " + date;
 	}
 	
 	public static void readOption() {
-		int cont = 1;
+		int count = 1;
 		int id = 0;
 		LocalDate d;
 		Scanner scanner = new Scanner(System.in);
 		
-		while (cont!=0){
-		System.out.println("Πατηστε 1 για μαθητη και 2 για καθηγητη");
-		cont = scanner.nextInt();
+		while (count!=0){
+		//JOptionPane.showOptionDialog(null, , title, optionType, QUESTION_MESSAGE, icon, options, initialValue)System.out.println("Πατηστε 1 για μαθητη και 2 για καθηγητη");
+		count = scanner.nextInt();
 		
-		switch(cont){
+		switch(count){
 		case 0:
 			break;
 		case 1:
@@ -108,9 +111,9 @@ public class Case {
 	
 	public void addNewCase() {
 	    if (gender.equalsIgnoreCase("Boy")) {
-			boys ++;
+			men ++;
 		} else {
-			girls ++;
+			women ++;
 		}
 	    numOfCases ++;
 	}
