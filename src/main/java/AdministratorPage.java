@@ -46,7 +46,33 @@ public class AdministratorPage extends JFrame {
 		});
 		menuBar.add(mnNewMenu);
 		
-		JMenu mnNewMenu_1 = new JMenu("New menu");
+		JMenu mnNewMenu_1 = new JMenu("Find");
 		menuBar.add(mnNewMenu_1);
+		
+		JMenu mnNewMenu_1_2 = new JMenu("Previous Case");
+		mnNewMenu_1.add(mnNewMenu_1_2);
+		
+		JMenu mnNewMenu_1_3 = new JMenu("Student");
+		mnNewMenu_1.add(mnNewMenu_1_3);
+		
+		JMenu mnNewMenu_1_4 = new JMenu("Teacher");
+		mnNewMenu_1.add(mnNewMenu_1_4);
+		
+		JMenu mnNewMenu_1_5 = new JMenu("School");
+		mnNewMenu_1.add(mnNewMenu_1_5);
+		
+		JMenu mnNewMenu_1_6 = new JMenu("Hospital");
+		mnNewMenu_1.add(mnNewMenu_1_6);
+		
+		JMenu mnNewMenu_2 = new JMenu("Log out");
+		mnNewMenu_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+			}
+		});
+		menuBar.add(mnNewMenu_2);
+		
+	
 	}
 }
