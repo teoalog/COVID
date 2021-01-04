@@ -4,9 +4,6 @@
  * Copyright 2020 Informaniacs/Athens University of Economics and Business (AUEB)
  */
 
-
-package src.main.java;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -27,8 +24,8 @@ public class Case {
 		this.idOfCase = idOfCase;
 		this.date = date;
 		this.gender = gender;
-		totalcasesList.add(this);
-		numofcases++;
+		totalCasesList.add(this);
+		numOfCases++;
 	}
 	
 	public int getId() {
@@ -115,7 +112,7 @@ public class Case {
 		} else {
 			girls ++;
 		}
-	    numofcases ++;
+	    numOfCases ++;
 	}
 	
 }

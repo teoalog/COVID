@@ -1,5 +1,3 @@
-package src.main.java;
-
 import java.util.ArrayList;
 
 public class Class {
@@ -85,7 +83,7 @@ public class Class {
 	 * teaches in this class.
 	 */
 	
-	public static Class findClass(Teacher t)	{
+	public static Class findClass(Teacher t){
 		boolean flag = false;
 		int i = 0;
 		while (i < allclasses.size() && flag == false) {

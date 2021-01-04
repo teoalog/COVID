@@ -1,7 +1,14 @@
-package src.main.java;
+import java.awt.EventQueue;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -45,6 +52,7 @@ public class GUI {
 		frmCovidSchoolApp.setBounds(400, 200, 750, 400);
 		frmCovidSchoolApp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		/* Setting up the menu */
 		JMenuBar menuBar = new JMenuBar();
 		frmCovidSchoolApp.setJMenuBar(menuBar);
 		
@@ -52,6 +60,7 @@ public class GUI {
 		mnHome.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				frmCovidSchoolApp.setVisible(true);
 			}
 		});
 		menuBar.add(mnHome);
@@ -60,61 +69,79 @@ public class GUI {
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("General information");
+		mntmNewMenuItem.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				GeneralInfo ginfo = new GeneralInfo();
+				ginfo.setVisible(true);
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Related with Education");
+		mntmNewMenuItem_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				RelatedwithEdu edu = new RelatedwithEdu();
+				edu.setVisible(true);
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_1);
 		
 		JMenu mnNewMenu = new JMenu("Statistics");
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Map");
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Maps");
+		mntmNewMenuItem_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JPanel pmaps = new JPanel();
+				JFrame fmaps = new JFrame();
+				fmaps.setBounds(530, 240, 500, 300);
+				fmaps.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				fmaps.setVisible(true);
+				fmaps.getContentPane().add(pmaps);
+				fmaps.setTitle("Maps");
+				pmaps.setLayout(null);
+			}
+		});
 		mnNewMenu.add(mntmNewMenuItem_2);
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Graphs");
+		mntmNewMenuItem_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JPanel pgraphs = new JPanel();
+				JFrame fgraphs = new JFrame();
+				fgraphs.setBounds(530, 240, 500, 300);
+				fgraphs.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				fgraphs.setVisible(true);
+				fgraphs.getContentPane().add(pgraphs);
+				fgraphs.setTitle("Login");
+				pgraphs.setLayout(null);
+			}
+		});
 		mnNewMenu.add(mntmNewMenuItem_3);
 		
 		JMenu mnNewMenu_2 = new JMenu("Login");
 		mnNewMenu_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel loginpanel = new JPanel();
-				JFrame loginframe = new JFrame();
-				loginframe.setBounds(530, 240, 500, 300);
-				loginframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				loginframe.setVisible(true);
-				loginframe.getContentPane().add(loginpanel);
-				loginframe.setTitle("Login");
-				loginpanel.setLayout(null);
-				
-				JLabel user = new JLabel("School ID");
-				user.setBounds(10, 20, 80, 25);
-				loginpanel.add(user);
-				
-				JTextField username = new JTextField(20);
-				username.setBounds(100, 20, 165, 25);
-				loginpanel.add(username);
-				
-				JLabel password = new JLabel("Password");
-				password.setBounds(10, 50, 80, 25);
-				loginpanel.add(password);
-				
-				JPasswordField enterpass = new JPasswordField();
-				enterpass.setBounds(100, 50, 165, 25);
-				loginpanel.add(enterpass);
-				
-				JButton lbutton = new JButton("Log In");
-				lbutton.setBounds(10, 80, 80, 25);
-				loginpanel.add(lbutton);
-				
-				JButton fpbutton = new JButton("Forgot Password?");
-				fpbutton.setBounds(100, 80, 180, 25);
-				loginpanel.add(fpbutton);
+				Login log = new Login();
+				log.setVisible(true);	
 			}
 		});
 		menuBar.add(mnNewMenu_2);
 		
 		JMenu mnNewMenu_3 = new JMenu("Help");
+		mnNewMenu_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Help h1 = new Help();
+				h1.setVisible(true);
+			}
+		});
+		
 		menuBar.add(mnNewMenu_3);
 		
 		JMenu mnNewMenu_4 = new JMenu("Exit");

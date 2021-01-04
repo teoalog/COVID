@@ -1,5 +1,3 @@
-package src.main.java;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -28,8 +26,7 @@ public class Read {
 			    
 		}
 			}catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+				e.printStackTrace();
 			}		
 	}
 }

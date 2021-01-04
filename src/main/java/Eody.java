@@ -1,5 +1,3 @@
-package src.main.java;
-
 public class Eody {
 	private static Eody eody = null;
 	public int totalcases;
