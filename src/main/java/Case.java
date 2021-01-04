@@ -55,39 +55,31 @@ public class Case {
 		return "ID of Case: " + idOfCase + "Gender: " + gender + "Date: " + date;
 	}
 	
-	public static void readOption() {
-		int count = 1;
+	public static void readOption(Object s) {
 		int id = 0;
-		LocalDate d;
-		Scanner scanner = new Scanner(System.in);
-		
-		while (count!=0){
-		//JOptionPane.showOptionDialog(null, , title, optionType, QUESTION_MESSAGE, icon, options, initialValue)System.out.println("Πατηστε 1 για μαθητη και 2 για καθηγητη");
-		count = scanner.nextInt();
-		
-		switch(count){
-		case 0:
-			break;
-		case 1:
-			System.out.println("Παρακαλω δωστε το id του μαθητη");
-			id = scanner.nextInt();
-			d =  LocalDate.now();
-			Student s = Student.findStudent(id); //This is the Student Object which refers to our case
-			s.setStatus("positive");//Changing student's status
-			Class cl = Class.findClass(s);//This is the Class Object which refers to our student's class
+		LocalDate dd;
+		String gender;
+		int school;
+		Class cl;
+		Case c;
+		if (s.equals("Student")) {
+			id = Integer.parseInt(JOptionPane.showInputDialog(null, "Please fill in the following fields: \nStudent ID: ",
+					"New Case", JOptionPane.INFORMATION_MESSAGE));
+			dd = LocalDate.now();
+			Student st = Student.findStudent(id); //This is the Student Object which refers to our case
+			st.setStatus("positive");//Changing student's status
+			cl = Class.findClass(st);//This is the Class Object which refers to our student's class
 		    cl.setCases(); //updates the total  amount of cases of this class
-			int school = School.findSchool(s.getSchoolid()); //The position of school in the array list that includes all schools
+			school = School.findSchool(st.getSchoolid()); //The position of school in the array list that includes all schools
 			School.addCaseInSchool(school);
-			Hospital.findHospital(s.getSchoolid()); //Looks for a near hospital
-			String g = s.getGender();
-			Case c = new Case(id, d, g); //Creates a Case object
+			Hospital.findHospital(st.getSchoolid()); //Looks for a near hospital
+			gender = st.getGender();
+			c = new Case(id, dd, gender); //Creates a Case object
 			c.addNewCase(); //Add the new case in the array list
-			
-			break;
-		case 2:
-			System.out.println("Παρακαλω δωστε το id του καθηγητη");
-			d = LocalDate.now();
-			id = scanner.nextInt();
+		} else {
+			id = Integer.parseInt(JOptionPane.showInputDialog(null, "Please fill in the following fields: \nTeacher ID: ",
+					"New Case", JOptionPane.INFORMATION_MESSAGE));
+			dd = LocalDate.now();
 			Teacher t = Teacher.findTeacher(id);//This is the Teacher Object which refers to our case
 			t.setStatus("positive");//Changing teacher's status
 			cl = Class.findClass(t);//This is the Class Object which refers to our teacher's class
@@ -95,24 +87,19 @@ public class Case {
 			school = School.findSchool(t.getSchoolid());//The position of school in the array list that includes all schools
 			School.addCaseInSchool(school);
 			Hospital.findHospital(t.getSchoolid());//Looks for a near hospital
-			g = t.getGender();
-		    c = new Case(id, d, g);//Creates a Case object
+			gender = t.getGender();
+		    c = new Case(id, dd, gender);//Creates a Case object
 		    c.addNewCase(); //Add the new case in the array list
-			break;
-		default:
-			System.out.println("Λαθος καταχωρηση");
 		}
-	
-	    }
 
 	}
 	
 	//This method adds a case in the cases array list
 	
 	public void addNewCase() {
-	    if (gender.equalsIgnoreCase("Boy")) {
+	    if (gender.equalsIgnoreCase("Man")) {
 			men ++;
-		} else {
+		} else if (gender.equalsIgnoreCase("Woman")){
 			women ++;
 		}
 	    numOfCases ++;

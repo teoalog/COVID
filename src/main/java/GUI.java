@@ -46,7 +46,6 @@ public class GUI {
 	private void initialize() {
 		
 		frmCovidSchoolApp = new JFrame();
-		frmCovidSchoolApp.setVisible(true);
 		frmCovidSchoolApp.setTitle("COVID-19 School App");
 		frmCovidSchoolApp.setBounds(400, 200, 750, 400);
 		frmCovidSchoolApp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,9 +56,9 @@ public class GUI {
 		
 		JMenu mnHome = new JMenu("Home");
 		mnHome.addMouseListener(new MouseAdapter() {
+			/* When this menu is clicked, it goes to the Homepage */
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				frmCovidSchoolApp.setVisible(true);
 			}
 		});
 		menuBar.add(mnHome);
@@ -69,20 +68,20 @@ public class GUI {
 		
 		JMenu mntmNewMenuItem = new JMenu("General information");
 		mntmNewMenuItem.addMouseListener(new MouseAdapter() {
+			/* When this menu is clicked, it goes to the Window General Information */
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				GeneralInfo ginfo = new GeneralInfo();
-				ginfo.setVisible(true);
 			}
 		});
 		mnNewMenu_1.add(mntmNewMenuItem);
 		
 		JMenu mntmNewMenuItem_1 = new JMenu("Related with Education");
 		mntmNewMenuItem_1.addMouseListener(new MouseAdapter() {
+			/* When this menu is clicked, it goes to the Window Information related to Education and COVID-19 */
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				RelatedwithEdu edu = new RelatedwithEdu();
-				edu.setVisible(true);
 			}
 		});
 		mnNewMenu_1.add(mntmNewMenuItem_1);
@@ -92,52 +91,40 @@ public class GUI {
 		
 		JMenu mntmNewMenuItem_2 = new JMenu("Maps");
 		mntmNewMenuItem_2.addMouseListener(new MouseAdapter() {
+			/* When this menu is clicked, it goes to the Window displaying the Map */
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel pmaps = new JPanel();
-				JFrame fmaps = new JFrame();
-				fmaps.setBounds(530, 240, 500, 300);
-				fmaps.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				fmaps.setVisible(true);
-				fmaps.getContentPane().add(pmaps);
-				fmaps.setTitle("Maps");
-				pmaps.setLayout(null);
+				Maps m = new Maps();
 			}
 		});
 		mnNewMenu.add(mntmNewMenuItem_2);
 		
 		JMenu mntmNewMenuItem_3 = new JMenu("Graphs");
 		mntmNewMenuItem_3.addMouseListener(new MouseAdapter() {
+			/* When this menu is clicked, it goes to the Window with Graphs */
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel pgraphs = new JPanel();
-				JFrame fgraphs = new JFrame();
-				fgraphs.setBounds(530, 240, 500, 300);
-				fgraphs.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				fgraphs.setVisible(true);
-				fgraphs.getContentPane().add(pgraphs);
-				fgraphs.setTitle("Login");
-				pgraphs.setLayout(null);
+				Graphs g = new Graphs();
 			}
 		});
 		mnNewMenu.add(mntmNewMenuItem_3);
 		
 		JMenu mnNewMenu_2 = new JMenu("Login");
 		mnNewMenu_2.addMouseListener(new MouseAdapter() {
+			/* When this menu is clicked, it goes to the Login Page */
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Login log = new Login();
-				log.setVisible(true);	
+				Login log = new Login();	
 			}
 		});
 		menuBar.add(mnNewMenu_2);
 		
 		JMenu mnNewMenu_3 = new JMenu("Help");
 		mnNewMenu_3.addMouseListener(new MouseAdapter() {
+			/* When this menu is clicked, it goes to the Help page */
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Help h1 = new Help();
-				h1.setVisible(true);
 			}
 		});
 		
@@ -145,6 +132,7 @@ public class GUI {
 		
 		JMenu mnNewMenu_4 = new JMenu("Exit");
 		mnNewMenu_4.addMouseListener(new MouseAdapter() {
+			/* When this menu is clicked, it exits the program */
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.exit(0);

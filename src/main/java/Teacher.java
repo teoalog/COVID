@@ -70,7 +70,8 @@ public class Teacher {
 
 	@Override
 	public String toString() {
-		return "Teacher [surname=" + surname + ", name=" + name + ", id=" + id + ", status=" + status +"]";
+		String s = "Teacher";
+		return "Surname: " + surname + "\n Name: " + name + "\n ID: " + id + "\n COVID-19 Status: " + status;
 	}
 	
 	public static Teacher findTeacher(int code) {
