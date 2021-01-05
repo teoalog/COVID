@@ -1,10 +1,12 @@
+package covid;
+
 import java.util.ArrayList;
 
 public class Grade {
 	
 	private int id;
-	private int cases=0; // �� ��������� ���� �����.
-	protected ArrayList<java.lang.Class> classes = new ArrayList<java.lang.Class>(); // �� ������� ��� ���� ��� ���� ������������� �� list
+	private int cases=0; // the active cases of covid in this grade
+	protected ArrayList<Class> classes = new ArrayList<Class>(); // a list with the classes each grade has.
 	protected static ArrayList<Grade> allgrades = new ArrayList<Grade>();
 	
 	
@@ -18,10 +20,9 @@ public class Grade {
 		return cases;
 	}
 	
-	public void setCases(java.lang.Class classes[]) { //������� �� �� ��������� ���� �������� �������
-		                                   //�� �������� ��������� ��� �����.
-		for(int i=0; i<classes.length; i++) {
-			cases = cases + classes[i].getCases();
+	public void setCases() {
+		for(int i = 0; i < classes.size(); i++) {
+			cases += classes.get(i).getCases();
 		}
 	}
 
