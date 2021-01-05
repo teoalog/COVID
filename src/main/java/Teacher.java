@@ -1,3 +1,5 @@
+package covid;
+
 import java.util.ArrayList;
 
 public class Teacher {
@@ -8,7 +10,7 @@ public class Teacher {
 	private int schoolid;
 	private String phonenumber;
 	private String gender;
-	private String status = "negative"; //����������� �� �� ���� ��������� ���� ������.
+	private String status = "negative"; //to check if a teacher is infected with covid-19
 	protected static ArrayList <Teacher> allteachers = new ArrayList<Teacher>();
 	
 	public Teacher(String surname, String name, int id, String phonenumber, String gender , int schoolid) {
