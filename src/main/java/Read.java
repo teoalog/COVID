@@ -1,34 +1,58 @@
+package covid;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.Path;//interface 
 import java.nio.file.Paths;
 
-public class Read {
-	static boolean flag = false;
+public class Read { 
+	static int f = 1;
+	static int position_s = 0;
+	static int position_t = 0;
 	protected static void readText(String filename,String choise) {
-		Path pathtoFile = Paths.get(filename);// create a Path object ï¿½ï¿½ï¿½ ï¿½ï¿½ URI ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.    
+		Path pathtoFile = Paths.get(filename);// we create a Path object from the file's URI to trace it.    
 		try {
-			BufferedReader br = Files.newBufferedReader(pathtoFile, StandardCharsets.UTF_8);// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ BufferedReader ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
-			String line = br.readLine();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
-			while(line != null) {//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. 
-				if(choise.equals("Student")){   //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. 
-					String ar[] = line.split(",", 5);  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 5 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
-					Student s = new Student(ar[1],ar[2],Integer.parseInt(ar[0]),ar[3],ar[4]); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Student.
+			BufferedReader br = Files.newBufferedReader(pathtoFile, StandardCharsets.UTF_8);//we create a BufferedReader object so that 
+			                                                                                //we'll be able to read one by one 
+			                                                                               //the lines of our file.
+			String line = br.readLine();// it reads the first line.
+			while(line != null) {//as long as the file has more lines we repeat. 
+				if(choise.equals("Student")){   //if its the students file. 
+					String ar[] = line.split(",", 7);  // we split the elements of each line 
+					                                  // based on the commas and we put each 
+					                                 // element in an array
+					Student s = new Student(Integer.parseInt(ar[0]),ar[1],ar[2],ar[3],ar[4],Integer.parseInt((ar[5]), Integer.parseInt(ar[6]))); //äçìéïõñãù íåï áíôéêåéìåíï Student.
 					System.out.println(s);
-				}else if(choise.contentEquals("Teacher")){//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. 
-					String ar[] = line.split(",", 5);
-					Teacher t = new Teacher(ar[1],ar[2],Integer.parseInt(ar[0]),ar[3],ar[4]);
+				}else if(choise.contentEquals("Teacher")){// the teachers file. 
+					String ar[] = line.split(",", 6);
+					Teacher t = new Teacher(ar[1],ar[2],Integer.parseInt(ar[0]),ar[3],ar[4],Integer.parseInt(ar[5])); 
 					System.out.println(t);
+				} else if(choise.contentEquals("Class")) { // the classes file
+					// for the classes.
+					
+			    }else if(choise.contentEquals("Grade")) { // the grades file
+					
+					
+				}else if(choise.contentEquals("School")) {//the schools file
+				
+				}else if(choise.contentEquals("Municipality")) {//the municipalities file
+					String ar[] = line.split(",", 3);
+					Municipality m = new Municipality(ar[0],Integer.parseInt(ar[1]),Integer.parseInt(ar[2]));
+					System.out.println(m);	
+				}else if(choise.contentEquals("Hospital")) {
+					String ar[] = line.split("," , 2);
+					Hospital h = new Hospital(ar[0],ar[1]);
+					System.out.println(h);				
 				}
-				line = br.readLine(); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
-			    
-		}
+				line = br.readLine(); // read the next line
+		}	    
 			}catch (IOException e) {
 				e.printStackTrace();
-			}		
+			}
 	}
+	
 }
 
 
