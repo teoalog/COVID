@@ -1,3 +1,5 @@
+package covid;
+
 import java.util.ArrayList;
 
 public class Student {
@@ -7,11 +9,11 @@ public class Student {
 	private int schoolid;
 	private String parentphone;
 	private String gender;
-	private String status = "negative"; //������������ ��� ��� �� ���� ���� ������� covid-19.
+	private String status = "negative"; // to check if a student is infected with covid-19
 	protected static ArrayList<Student> allstudents = new ArrayList<Student> ();
 	
 	
-	public Student(String surname, String name ,int id, String parentphone , String gender ,int schoolid) {
+	public Student(int id ,String surname, String name, String parentphone , String gender ,int schoolid) {
 		super();
 		this.surname = surname;
 		this.name = name;
