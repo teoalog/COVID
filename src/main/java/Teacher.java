@@ -5,16 +5,18 @@ public class Teacher {
 	private String surname;
 	private String name;
 	private int id;
+	private int schoolid;
 	private String phonenumber;
 	private String gender;
 	private String status = "negative"; //����������� �� �� ���� ��������� ���� ������.
 	protected static ArrayList <Teacher> allteachers = new ArrayList<Teacher>();
 	
-	public Teacher(String surname, String name, int id, String phonenumber, String gender) {
+	public Teacher(String surname, String name, int id, String phonenumber, String gender , int schoolid) {
 		super();
 		this.surname = surname;
 		this.name = name;
 		this.id = id;
+		this.schoolid = schoolid;
 		this.phonenumber = phonenumber;
 		this.gender = gender;
 		allteachers.add(this);
@@ -50,6 +52,14 @@ public class Teacher {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public int getSchoolid() {
+		return schoolid;
+	}
+	
+	public void setSchoolid(int schoolid) {
+		this.schoolid = schoolid;
 	}
 
 	public String getPhonenumber() {
