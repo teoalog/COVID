@@ -1,7 +1,5 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,10 +8,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Button;
 
 public class Login extends JFrame {
 
@@ -21,6 +17,7 @@ public class Login extends JFrame {
 	private JFrame flogin;
 	private String schoolid;
 	private String passw;
+	private static final String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
 
 	/**
 	 * Create the frame.
@@ -55,10 +52,18 @@ public class Login extends JFrame {
 		
 		JButton lbutton = new JButton("Log In");
 		lbutton.addActionListener(new ActionListener() {
+			/* When the Login Button is clicked, we check if the schoolid and the password is correct.
+			 * If so we open the Administrator page, and otherwise we ask for another try */
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				JOptionPane.showMessageDialog(null, "We redirecting you to the Administrator's page. \nPlease wait...");
-				AdministratorPage admin = new AdministratorPage();
+				try {
+					
+				} catch (NullPointerException exc) {
+					JOptionPane.showMessageDialog(null, "Wrong School ID or Password", "Please try again.", JOptionPane.ERROR_MESSAGE);
+				} finally {
+					dispose();
+					JOptionPane.showMessageDialog(null, "We redirecting you to the Administrator's page. \nPlease wait...");
+					AdministratorPage admin = new AdministratorPage();
+			}
 			}
 		});
 		lbutton.setBounds(191, 97, 80, 25);
@@ -69,11 +74,23 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String email = JOptionPane.showInputDialog(null, "Write your e-mail and we will contact you for support. \nEmail: ",
 						"Don't worry!", JOptionPane.INFORMATION_MESSAGE);
+				if (isValidEmailAddress(email)) {
+					JOptionPane.showMessageDialog(null, "Thank you. We will contact you soon.");
+				} else {
+					JOptionPane.showMessageDialog(null, "Wrong Email address", "Please try again.", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 		fpbutton.setBounds(142, 134, 137, 29);
 		plogin.add(fpbutton);
 		
+		
+	}
+
+	protected boolean isValidEmailAddress(String email) {
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(email);
+		return matcher.matches();
 		
 	}
 }
