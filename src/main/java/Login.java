@@ -56,7 +56,7 @@ public class Login extends JFrame {
 			 * If so we open the Administrator page, and otherwise we ask for another try */
 			public void actionPerformed(ActionEvent e) {
 				try {
-					
+					//if..else
 				} catch (NullPointerException exc) {
 					JOptionPane.showMessageDialog(null, "Wrong School ID or Password", "Please try again.", JOptionPane.ERROR_MESSAGE);
 				} finally {
@@ -71,14 +71,18 @@ public class Login extends JFrame {
 		
 		JButton fpbutton = new JButton("Forgot Password?");
 		fpbutton.addActionListener(new ActionListener() {
+			/* When the Forgot Password Button is clicked, the user enters a contact email.
+			 * We check if it is correct and we inform the user. */
 			public void actionPerformed(ActionEvent e) {
 				String email = JOptionPane.showInputDialog(null, "Write your e-mail and we will contact you for support. \nEmail: ",
 						"Don't worry!", JOptionPane.INFORMATION_MESSAGE);
-				if (isValidEmailAddress(email)) {
-					JOptionPane.showMessageDialog(null, "Thank you. We will contact you soon.");
-				} else {
+				while(isValidEmailAddress(email)== false) {
 					JOptionPane.showMessageDialog(null, "Wrong Email address", "Please try again.", JOptionPane.ERROR_MESSAGE);
+					email = JOptionPane.showInputDialog(null, "Write your e-mail and we will contact you for support. \nEmail: ",
+							"Don't worry!", JOptionPane.INFORMATION_MESSAGE);
 				}
+				JOptionPane.showMessageDialog(null, "Thank you. We will contact you soon.");
+				setVisible(false);
 			}
 		});
 		fpbutton.setBounds(142, 134, 137, 29);

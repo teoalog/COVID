@@ -1,11 +1,8 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JMenu;
@@ -26,7 +23,7 @@ public class AdministratorPage extends JFrame {
 		fadmin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		fadmin.setBounds(530, 240, 500, 300);
 		fadmin.setVisible(true);
-		fadmin.setTitle("");
+		fadmin.setTitle("Welcome!");
 		fadmin.getContentPane().add(padmin);
 		padmin.setLayout(null);
 		
@@ -68,7 +65,7 @@ public class AdministratorPage extends JFrame {
 		mnNewMenu_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				dispose();
+				
 			}
 		});
 		menuBar.add(mnNewMenu_2);

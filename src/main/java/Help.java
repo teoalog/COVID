@@ -17,7 +17,7 @@ public class Help extends JFrame {
 		fhelp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		fhelp.setBounds(530, 240, 500, 300);
 		fhelp.setVisible(true);
-		fhelp.setTitle("General information about SARS-CoV-2");
+		fhelp.setTitle("Help");
 		fhelp.getContentPane().add(phelp);
 		phelp.setLayout(null);
 	}

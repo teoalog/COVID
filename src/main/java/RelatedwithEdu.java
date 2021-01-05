@@ -23,10 +23,6 @@ public class RelatedwithEdu extends JFrame {
 		fedu.setTitle("Information about SARS-CoV-2 related to Education");
 		fedu.getContentPane().add(pedu);
 		pedu.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("Are you a student, a parent or a teacher? \n "
-				+ "Learn about the impact of COVID-19 on the educational system.");
-		pedu.add(lblNewLabel, BorderLayout.NORTH);
-	}
 
+	}
 }

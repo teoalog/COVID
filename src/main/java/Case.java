@@ -91,7 +91,7 @@ public class Case {
 		    c = new Case(id, dd, gender);//Creates a Case object
 		    c.addNewCase(); //Add the new case in the array list
 		}
-
+		JOptionPane.showMessageDialog(null, "Case succesfully added to database.");
 	}
 	
 	//This method adds a case in the cases array list
