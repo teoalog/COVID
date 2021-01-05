@@ -4,17 +4,19 @@ public class Student {
 	private String surname;
 	private String name;
 	private int id;
+	private int schoolid;
 	private String parentphone;
 	private String gender;
 	private String status = "negative"; //������������ ��� ��� �� ���� ���� ������� covid-19.
 	protected static ArrayList<Student> allstudents = new ArrayList<Student> ();
 	
 	
-	public Student(String surname, String name ,int id, String parentphone , String gender ) {
+	public Student(String surname, String name ,int id, String parentphone , String gender ,int schoolid) {
 		super();
 		this.surname = surname;
 		this.name = name;
 		this.id = id;
+		this.schoolid = schoolid;
 		this.parentphone = parentphone;
 		this.gender = gender;
 		allstudents.add(this);	
@@ -53,6 +55,14 @@ public class Student {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public int getSchoolid() {
+		return id;
+	}
+	
+	public void setSchoolid(int schoolid) {
+		this.schoolid = schoolid;
 	}
 
 	public String getParentphone() {
