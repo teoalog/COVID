@@ -1,5 +1,3 @@
-package covid;
-
 import java.util.ArrayList;
 
 public class Grade {

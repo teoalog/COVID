@@ -1,5 +1,3 @@
-package covid;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -23,7 +21,7 @@ public class Read {
 					String ar[] = line.split(",", 7);  // we split the elements of each line 
 					                                  // based on the commas and we put each 
 					                                 // element in an array
-					Student s = new Student(Integer.parseInt(ar[0]),ar[1],ar[2],ar[3],ar[4],Integer.parseInt((ar[5]), Integer.parseInt(ar[6]))); //δημιουργω νεο αντικειμενο Student.
+					Student s = new Student(Integer.parseInt(ar[0]),ar[1],ar[2],ar[3],ar[4],Integer.parseInt((ar[5]), Integer.parseInt(ar[6]))); //οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½ οΏ½οΏ½οΏ½ οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½ Student.
 					System.out.println(s);
 				}else if(choise.contentEquals("Teacher")){// the teachers file. 
 					String ar[] = line.split(",", 6);
