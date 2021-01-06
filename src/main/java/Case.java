@@ -52,7 +52,13 @@ public class Case {
 	
 	public String toString() {
 		String s = "Case";
-		return "ID of Case: " + idOfCase + "Gender: " + gender + "Date: " + date;
+		return "ID of Case: " + idOfCase + "\nGender: " + gender + "\nDate: " + date;
+	}
+	
+	public static void getAllcases() {
+		for (int i = 0; i < totalCasesList.size(); i++) {
+			JOptionPane.showMessageDialog(null, totalCasesList.get(i).toString());
+		}
 	}
 	
 	public static void readOption(Object s) {

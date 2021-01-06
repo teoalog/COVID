@@ -1,6 +1,8 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class School {
 	public static ArrayList<School> allschools = new ArrayList<School>();
 	private int casesinschool = 0;
@@ -65,7 +67,14 @@ public class School {
 	}
 	
 	public String toString() {
-		return area + " " + nameofschool + " " + schoolid + " " + schoolisclosed;
+		String s = "School";
+		return "Name: " + nameofschool + "\nArea: " + area + "\nSchool ID: " + schoolid + "Status of School: " + schoolisclosed;
+	}
+	
+	public static void getAllschools() {
+		for (int i = 0; i < allschools.size(); i++) {
+			JOptionPane.showMessageDialog(null, allschools.get(i).toString());
+		}
 	}
 	
 	/*This method finds in which school the student/teacher

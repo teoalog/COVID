@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Hospital {
 
 	private String nameofhospital;
@@ -34,17 +36,23 @@ public class Hospital {
 		return nameofhospital + " " + area;
 	}
 	
+	public static void getAllhospitals() {
+		for (int i = 0; i < allhospitals.size(); i++) {
+			JOptionPane.showMessageDialog(null, allhospitals.get(i).toString());
+		}
+	}
+	
 	/*finds the nearest hospital for the patient*/
 	public static void findHospital(int schoolid) {
 		boolean flag = false;
-	for	(int i = 0; i < allhospitals.size(); i++) {
-		if (allhospitals.get(i).area == School.allschools.get(schoolid).getArea()) {
+		for	(int i = 0; i < allhospitals.size(); i++) {
+			if (allhospitals.get(i).area == School.allschools.get(schoolid).getArea()) {
 			System.out.println("Το όνομα του νοσοκομείου αναφοράς στο δήμο σας είναι: " + allhospitals.get(i).nameofhospital);
 			flag = true;
-		}
-	}	
-	if (flag == true) {
+			}
+		}	
+		if (flag == true) {
 		System.out.println("Δεν υπάρχει νοσοκομείο αναφοράς στο δήμο που βρίσκεται το σχολείο σας");
-	}
+		}
 	}
 }

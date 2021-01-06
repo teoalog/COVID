@@ -36,7 +36,7 @@ public class AdministratorPage extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				Object[] choices = {"Student", "Teacher"};
 				Object option = JOptionPane.showInputDialog(null, "Would you like to add a case referring to a Student or a Teacher?", 
-						"Click a button", JOptionPane.DEFAULT_OPTION, null, choices, choices[0]);
+						"Choose an option", JOptionPane.DEFAULT_OPTION, null, choices, choices[0]);
 				Case.readOption(option);
 				
 			}
@@ -61,14 +61,64 @@ public class AdministratorPage extends JFrame {
 		JMenu mnNewMenu_1_6 = new JMenu("Hospital");
 		mnNewMenu_1.add(mnNewMenu_1_6);
 		
-		JMenu mnNewMenu_2 = new JMenu("Log out");
-		mnNewMenu_2.addMouseListener(new MouseAdapter() {
+		JMenu mnNewMenu_2 = new JMenu("View data");
+		menuBar.add(mnNewMenu_2);
+		
+		JMenu mnNewMenu_2_2 = new JMenu("All Cases");
+		mnNewMenu_2_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Case.getAllcases();
+			}
+		});
+		mnNewMenu_2.add(mnNewMenu_2_2);
+		
+		JMenu mnNewMenu_2_3 = new JMenu("All Students");
+		mnNewMenu_2_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Student.getAllstudents();
+			}
+		});
+		mnNewMenu_2.add(mnNewMenu_2_3);
+		
+		JMenu mnNewMenu_2_4 = new JMenu("All Teachers");
+		mnNewMenu_2_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Teacher.getAllteachers();
+			}
+		});
+		mnNewMenu_2.add(mnNewMenu_2_4);
+		
+		JMenu mnNewMenu_2_5 = new JMenu("All Schools");
+		mnNewMenu_2_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				School.getAllschools();
+			}
+		});
+		mnNewMenu_2.add(mnNewMenu_2_5);
+		
+		JMenu mnNewMenu_2_6 = new JMenu("All Hospitals");
+		mnNewMenu_2_6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Hospital.getAllhospitals();
+			}
+		});
+		mnNewMenu_2.add(mnNewMenu_2_6);
+		
+		JMenu mnNewMenu_3 = new JMenu("Log out");
+		mnNewMenu_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
 			}
 		});
-		menuBar.add(mnNewMenu_2);
+		menuBar.add(mnNewMenu_3);
+		
+		
 		
 	
 	}

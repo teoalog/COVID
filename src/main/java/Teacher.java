@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Teacher {
 	 
 	private String surname;
@@ -81,7 +83,13 @@ public class Teacher {
 	@Override
 	public String toString() {
 		String s = "Teacher";
-		return "Surname: " + surname + "\n Name: " + name + "\n ID: " + id + "\n COVID-19 Status: " + status;
+		return "Surname: " + surname + "\nName: " + name + "\nID: " + id + "\nCOVID-19 Status: " + status;
+	}
+	
+	public static void getAllteachers() {
+		for (int i = 0; i < allteachers.size(); i++) {
+			JOptionPane.showMessageDialog(null, allteachers.get(i).toString());
+		}
 	}
 	
 	public static Teacher findTeacher(int code) {

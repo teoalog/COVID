@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Student {
 	private String surname;
 	private String name;
@@ -30,8 +32,6 @@ public class Student {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
-
 
 	public String getSurname() {
 		return surname;
@@ -83,9 +83,16 @@ public class Student {
 	
 	@Override
 	public String toString() {
-		return "Student [surname=" + surname + ", name=" + name + ", id=" + id + ", status=" + status + "]";
+		String s = "Student";
+		return "Surname: " + surname + "Name: " + name + "ID: " + id + "COVID-19 Status: " + status;
 	}
 	
+	public static void getAllstudents() {
+		for (int i = 0; i < allstudents.size(); i++) {
+			JOptionPane.showMessageDialog(null, allstudents.get(i).toString());
+		}
+	}
+
 	public static Student findStudent(int code) {
 		boolean flag = false;
 		int i = 0;
