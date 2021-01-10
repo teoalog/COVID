@@ -17,7 +17,7 @@ public class Login extends JFrame {
 	private JFrame flogin;
 	private String schoolid;
 	private String passw;
-	private static final String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+	private static final String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
 
 	/**
 	 * Create the frame.
@@ -82,7 +82,8 @@ public class Login extends JFrame {
 							"Don't worry!", JOptionPane.INFORMATION_MESSAGE);
 				}
 				JOptionPane.showMessageDialog(null, "Thank you. We will contact you soon.");
-				setVisible(false);
+				plogin.setVisible(false);
+				flogin.setVisible(false);
 			}
 		});
 		fpbutton.setBounds(142, 134, 137, 29);
