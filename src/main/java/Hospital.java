@@ -43,16 +43,19 @@ public class Hospital {
 	}
 	
 	/*finds the nearest hospital for the patient*/
-	public static void findHospital(int schoolid) {
+	public static Hospital findHospital(int schoolid) {
 		boolean flag = false;
+		int position = -1;
 		for	(int i = 0; i < allhospitals.size(); i++) {
 			if (allhospitals.get(i).area == School.allschools.get(schoolid).getArea()) {
-			System.out.println("Το όνομα του νοσοκομείου αναφοράς στο δήμο σας είναι: " + allhospitals.get(i).nameofhospital);
-			flag = true;
+				flag = true;
+				position = i;
 			}
 		}	
-		if (flag == true) {
-		System.out.println("Δεν υπάρχει νοσοκομείο αναφοράς στο δήμο που βρίσκεται το σχολείο σας");
+		if (flag == false) {
+			return null;
+		} else {
+			return allhospitals.get(position);
 		}
 	}
 }

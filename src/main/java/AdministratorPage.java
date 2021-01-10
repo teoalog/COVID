@@ -35,7 +35,7 @@ public class AdministratorPage extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Object[] choices = {"Student", "Teacher"};
-				Object option = JOptionPane.showInputDialog(null, "Would you like to add a case referring to a Student or a Teacher?", 
+				Object option = JOptionPane.showInputDialog(null, "Would you like to add a COVID-19 case referring to a Student or a Teacher?", 
 						"Choose an option", JOptionPane.DEFAULT_OPTION, null, choices, choices[0]);
 				Case.readOption(option);
 				
@@ -47,18 +47,82 @@ public class AdministratorPage extends JFrame {
 		menuBar.add(mnNewMenu_1);
 		
 		JMenu mnNewMenu_1_2 = new JMenu("Previous Case");
+		mnNewMenu_1_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		mnNewMenu_1.add(mnNewMenu_1_2);
 		
 		JMenu mnNewMenu_1_3 = new JMenu("Student");
+		mnNewMenu_1_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String id = JOptionPane.showInputDialog(null, "Please enter the ID of the Student you wish to find: ",
+						"Enter Student ID");
+				Student s = Student.findStudent(Integer.parseInt(id));
+				if (s.equals(null)) {
+					JOptionPane.showMessageDialog(null, "The Student with ID: " + id + " was not found in our Database.");
+					dispose();
+				} else {
+					JOptionPane.showMessageDialog(null, "Here is the information about the Student you looked for: " + s.toString());
+				}
+			}
+		});
 		mnNewMenu_1.add(mnNewMenu_1_3);
 		
 		JMenu mnNewMenu_1_4 = new JMenu("Teacher");
+		mnNewMenu_1_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String id = JOptionPane.showInputDialog(null, "Please enter the ID of the Teacher you wish to find: ",
+						"Enter Teacher ID");
+				Teacher t = Teacher.findTeacher(Integer.parseInt(id));
+				if (t.equals(null)) {
+					JOptionPane.showMessageDialog(null, "The Teacher with ID: " + id + " was not found in our Database.");
+					dispose();
+				} else {
+					JOptionPane.showMessageDialog(null, "Here is the information about the Teacher you looked for: " + t.toString());
+				}
+			}
+		});
 		mnNewMenu_1.add(mnNewMenu_1_4);
 		
 		JMenu mnNewMenu_1_5 = new JMenu("School");
+		mnNewMenu_1_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String id = JOptionPane.showInputDialog(null, "Please enter the ID of the School you wish to find: ",
+						"Enter School ID");
+				School sch;
+				if (Integer.parseInt(id) != -1) {
+					sch = School.allschools.get(Integer.parseInt(id));
+					JOptionPane.showMessageDialog(null, "Here is the information about the School you looked for: " + sch.toString());
+				} else {
+					JOptionPane.showMessageDialog(null, "The School with ID: " + id + " was not found in our Database.");
+					dispose();
+				}
+			}
+		});
 		mnNewMenu_1.add(mnNewMenu_1_5);
 		
 		JMenu mnNewMenu_1_6 = new JMenu("Hospital");
+		mnNewMenu_1_6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String id = JOptionPane.showInputDialog(null, "Please enter the ID of the School to find the nearest reference hospital: ",
+						"Enter School ID");
+				Hospital h = Hospital.findHospital(Integer.parseInt(id));
+				if (h.equals(null)) {
+					JOptionPane.showMessageDialog(null, "We are sorry but we did not find a hospital near the School with ID: " + id);
+					dispose();
+				} else {
+					JOptionPane.showMessageDialog(null, "Here is the information about the Hospital nearest to the School with ID: " 
+							+ id + "\n" + h.toString());	
+				}
+			}
+		});
 		mnNewMenu_1.add(mnNewMenu_1_6);
 		
 		JMenu mnNewMenu_2 = new JMenu("View data");
@@ -113,7 +177,7 @@ public class AdministratorPage extends JFrame {
 		mnNewMenu_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				dispose();
 			}
 		});
 		menuBar.add(mnNewMenu_3);

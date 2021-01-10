@@ -85,11 +85,11 @@ public class School {
 		int i = 0;
 		boolean flag = false;
 		while (i < allschools.size() && flag == false ); {
-	             if (allschools.get(i).schoolid == sid) {
+			if (allschools.get(i).schoolid == sid) {
 				flag = true;
 				return i;
 			}
-			i ++;
+			i++;
 		}
 		if (flag == false); {
 			return -1;
@@ -123,9 +123,9 @@ public class School {
 	 */
 	public static void addCaseInSchool(int x) {
 		if (x != -1) {
-		checkDates(allschools.get(x).schoolid);	
-		allschools.get(x).casesinschool ++;
-		allschools.get(x).datesofcases.add(LocalDate.now());
+			checkDates(allschools.get(x).schoolid);	
+			allschools.get(x).casesinschool ++;
+			allschools.get(x).datesofcases.add(LocalDate.now());
 		if (allschools.get(x).casesinschool > 5) {
 			schoolisclosed = true;
 			}

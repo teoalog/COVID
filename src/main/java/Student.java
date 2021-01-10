@@ -37,7 +37,7 @@ public class Student {
 		return surname;
 	}
 
-	public void setSurnmae(String surname) {
+	public void setSurname(String surname) {
 		this.surname = surname;
 	}
 
@@ -86,7 +86,7 @@ public class Student {
 		String s = "Student";
 		return "Surname: " + surname + "Name: " + name + "ID: " + id + "COVID-19 Status: " + status;
 	}
-	
+	/* Returns all Students' information in JPane window */
 	public static void getAllstudents() {
 		for (int i = 0; i < allstudents.size(); i++) {
 			JOptionPane.showMessageDialog(null, allstudents.get(i).toString());
@@ -105,7 +105,7 @@ public class Student {
 			i++;
 		}
 		if (flag == true) {
-		 return allstudents.get(position);
+			return allstudents.get(position);
 		} else {
 			return null;
 		}
