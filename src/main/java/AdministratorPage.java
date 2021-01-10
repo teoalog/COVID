@@ -57,6 +57,15 @@ public class AdministratorPage extends JFrame {
 		mnNewMenu_1_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				String id = JOptionPane.showInputDialog(null, "Please enter the ID of the Case you wish to find: ",
+						"Enter Case ID");
+				Case c = Case.findPreviousCase(Integer.parseInt(id));
+				if (c.equals(null)) {
+					JOptionPane.showMessageDialog(null, "The Case with ID: " + id + " was not found in our Database.");
+					dispose();
+				} else {
+					JOptionPane.showMessageDialog(null, "Here is the information about the Case you looked for: " + c.toString());
+				}
 			}
 		});
 		mnNewMenu_1.add(mnNewMenu_1_2);

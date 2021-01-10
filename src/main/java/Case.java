@@ -6,7 +6,6 @@
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -113,20 +112,23 @@ public class Case {
 	
 	//This method finds a case in the cases array list
 	
-	public Case findPreviousCase(int idofcase) {
+	public static Case findPreviousCase(int idofcase) {
 		int i = 0;
 		boolean flag = false;
-		while (i < totalcasesList.size() && flag == false ); {
-	             if (totalcasesList.get(i).idofcase == idofcase) {
+		int position = -1;
+		while (i < totalCasesList.size() && flag == false ); {
+	             if (totalCasesList.get(i).idOfCase == idofcase) {
 				flag = true;
-				return totalcasesList.get(i);
+				position = i; 
 			}
 			i ++;
 		}
-		if (flag == false) {
-			System.out.println("There isn't case with the id you gave");
+		if (flag == true) {
+			return totalCasesList.get(position);
+		} else {
+			return null;
 		}
-		return null;
+		
 	}
 	
 }
