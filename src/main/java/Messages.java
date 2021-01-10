@@ -53,6 +53,9 @@ public class Messages extends JFrame{
 		fmenu.setTitle("Message Notification");
 		fmenu.getContentPane().add(pmenu);
 		pmenu.setLayout(null);
+		JLabel lblNewLabel1 = new JLabel(stmess);
+		lblNewLabel1.setBounds(6, 6, 488, 243);
+		pmenu.add(lblNewLabel1);
 		/* Display the correct message according to the new case added (Student or Teacher) */
 		if (o.equals("Student")) {
 			JLabel lblNewLabel = new JLabel(stmess);

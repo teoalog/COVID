@@ -192,7 +192,7 @@ public class AdministratorPage extends JFrame {
 		mnNewMenu_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				dispose();
+				fadmin.dispose();
 			}
 		});
 		menuBar.add(mnNewMenu_3);

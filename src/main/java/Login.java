@@ -60,7 +60,7 @@ public class Login extends JFrame {
 				} catch (NullPointerException exc) {
 					JOptionPane.showMessageDialog(null, "Wrong School ID or Password", "Please try again.", JOptionPane.ERROR_MESSAGE);
 				} finally {
-					dispose();
+					flogin.dispose();
 					JOptionPane.showMessageDialog(null, "We redirecting you to the Administrator's page. \nPlease wait...");
 					AdministratorPage admin = new AdministratorPage();
 			}

@@ -19,7 +19,7 @@ public class GeneralInfo extends JFrame {
 		pgeneralinfo = new JPanel();
 		fgeneralinfo = new JFrame();
 		fgeneralinfo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		fgeneralinfo.setBounds(100, 100, 500, 300);
+		fgeneralinfo.setBounds(530, 240, 500, 300);
 		fgeneralinfo.setVisible(true);
 		fgeneralinfo.setTitle("General information about SARS-CoV-2");
 		fgeneralinfo.getContentPane().add(pgeneralinfo);

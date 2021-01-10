@@ -68,6 +68,7 @@ public class Case {
 		Class cl;
 		Case c;
 		if (s.equals("Student")) {
+			/* while statement to check if the correct credentails are entered */
 			id = Integer.parseInt(JOptionPane.showInputDialog(null, "Please fill in the following fields: \nStudent ID: ",
 					"New Case", JOptionPane.INFORMATION_MESSAGE));
 			dd = LocalDate.now();
@@ -99,7 +100,7 @@ public class Case {
 		JOptionPane.showMessageDialog(null, "Case succesfully added to database.");
 	}
 	
-	//This method adds a case in the cases array list
+	//This method adds a case in the array list of cases
 	
 	public void addNewCase() {
 	    if (gender.equalsIgnoreCase("Man")) {
@@ -110,7 +111,7 @@ public class Case {
 	    numOfCases ++;
 	}
 	
-	//This method finds a case in the cases array list
+	//This method finds a case in the array list of cases
 	
 	public static Case findPreviousCase(int idofcase) {
 		int i = 0;
