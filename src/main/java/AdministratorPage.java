@@ -29,7 +29,7 @@ public class AdministratorPage extends JFrame {
 		
 		JMenuBar menuBar = new JMenuBar();
 		fadmin.setJMenuBar(menuBar);
-		
+		/* Menu to add a new Case */
 		JMenu mnNewMenu = new JMenu("Add a case");
 		mnNewMenu.addMouseListener(new MouseAdapter() {
 			@Override
@@ -38,7 +38,13 @@ public class AdministratorPage extends JFrame {
 				Object option = JOptionPane.showInputDialog(null, "Would you like to add a COVID-19 case referring to a Student or a Teacher?", 
 						"Choose an option", JOptionPane.DEFAULT_OPTION, null, choices, choices[0]);
 				Case.readOption(option);
-				
+				int reply = JOptionPane.showConfirmDialog(null, "Would you like to notify all contacts of the case? ", 
+						"Send notification message", JOptionPane.YES_NO_OPTION);
+				if(reply == JOptionPane.YES_OPTION) {
+					Messages m = new Messages(option);					
+				} else {
+					
+				}
 			}
 		});
 		menuBar.add(mnNewMenu);
@@ -46,15 +52,15 @@ public class AdministratorPage extends JFrame {
 		JMenu mnNewMenu_1 = new JMenu("Find");
 		menuBar.add(mnNewMenu_1);
 		
+		/* Menu to find a previous Case */
 		JMenu mnNewMenu_1_2 = new JMenu("Previous Case");
 		mnNewMenu_1_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
 			}
 		});
 		mnNewMenu_1.add(mnNewMenu_1_2);
-		
+		/* Menu to find a Student */
 		JMenu mnNewMenu_1_3 = new JMenu("Student");
 		mnNewMenu_1_3.addMouseListener(new MouseAdapter() {
 			@Override
@@ -71,7 +77,7 @@ public class AdministratorPage extends JFrame {
 			}
 		});
 		mnNewMenu_1.add(mnNewMenu_1_3);
-		
+		/* Menu to find Teacher */
 		JMenu mnNewMenu_1_4 = new JMenu("Teacher");
 		mnNewMenu_1_4.addMouseListener(new MouseAdapter() {
 			@Override
@@ -88,7 +94,7 @@ public class AdministratorPage extends JFrame {
 			}
 		});
 		mnNewMenu_1.add(mnNewMenu_1_4);
-		
+		/* Menu to find a School */
 		JMenu mnNewMenu_1_5 = new JMenu("School");
 		mnNewMenu_1_5.addMouseListener(new MouseAdapter() {
 			@Override
@@ -106,16 +112,16 @@ public class AdministratorPage extends JFrame {
 			}
 		});
 		mnNewMenu_1.add(mnNewMenu_1_5);
-		
+		/* Menu to find a Hospital in the area of the given School */
 		JMenu mnNewMenu_1_6 = new JMenu("Hospital");
 		mnNewMenu_1_6.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String id = JOptionPane.showInputDialog(null, "Please enter the ID of the School to find the nearest reference hospital: ",
+				String id = JOptionPane.showInputDialog(null, "Please enter the ID of the School to find the nearest reference hospital in the area: ",
 						"Enter School ID");
 				Hospital h = Hospital.findHospital(Integer.parseInt(id));
 				if (h.equals(null)) {
-					JOptionPane.showMessageDialog(null, "We are sorry but we did not find a hospital near the School with ID: " + id);
+					JOptionPane.showMessageDialog(null, "We are sorry but we did not find a hospital in the area of the School with ID: " + id);
 					dispose();
 				} else {
 					JOptionPane.showMessageDialog(null, "Here is the information about the Hospital nearest to the School with ID: " 
