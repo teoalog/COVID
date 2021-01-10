@@ -111,4 +111,22 @@ public class Case {
 	    numOfCases ++;
 	}
 	
+	//This method finds a case in the cases array list
+	
+	public Case findPreviousCase(int idofcase) {
+		int i = 0;
+		boolean flag = false;
+		while (i < totalcasesList.size() && flag == false ); {
+	             if (totalcasesList.get(i).idofcase == idofcase) {
+				flag = true;
+				return totalcasesList.get(i);
+			}
+			i ++;
+		}
+		if (flag == false) {
+			System.out.println("There isn't case with the id you gave");
+		}
+		return null;
+	}
+	
 }
