@@ -1,23 +1,22 @@
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
-public class Graphs extends JFrame {
+import javax.swing.JOptionPane;
 
-	private JPanel pgraphs;
-	private JFrame fgraphs;
 
-	/**
-	 * Create the frame.
-	 */
+public class Graphs {
+
+	private Desktop web = Desktop.getDesktop();
+	
 	public Graphs() {
-		pgraphs = new JPanel();
-		fgraphs = new JFrame();
-		fgraphs.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		fgraphs.setBounds(530, 240, 500, 300);
-		fgraphs.setVisible(true);
-		fgraphs.setTitle("Graphs");
-		fgraphs.getContentPane().add(pgraphs);
-		pgraphs.setLayout(null);
+		/* Opens page (in browser) with live COVID-19 statistics from all over the world */
+		try {
+			web.browse(new URI("https://covid19info.live"));
+		} catch (IOException | URISyntaxException e) {
+			JOptionPane.showMessageDialog(null, "Connection to the website failed", 
+					"Error: " + e.getMessage() + "Please try again or contact us.", JOptionPane.ERROR_MESSAGE);
+		}
 	}
-
 }
