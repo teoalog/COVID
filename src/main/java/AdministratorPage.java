@@ -9,14 +9,16 @@ import javax.swing.JMenu;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/* This window is for the responsible person for COVID-19 in every school. 
+ * To access, you need the school id and the password.
+ */
+
 public class AdministratorPage extends JFrame {
 
 	private JPanel padmin;
 	private JFrame fadmin;
 
-	/**
-	 * Create the frame.
-	 */
+	/* Create the frame. */
 	public AdministratorPage() {
 		padmin = new JPanel();
 		fadmin = new JFrame();
@@ -29,7 +31,7 @@ public class AdministratorPage extends JFrame {
 		
 		JMenuBar menuBar = new JMenuBar();
 		fadmin.setJMenuBar(menuBar);
-		/* Menu to add a new Case */
+		/* Menu to add a new Case. */
 		JMenu mnNewMenu = new JMenu("Add a case");
 		mnNewMenu.addMouseListener(new MouseAdapter() {
 			@Override
@@ -52,7 +54,7 @@ public class AdministratorPage extends JFrame {
 		JMenu mnNewMenu_1 = new JMenu("Find");
 		menuBar.add(mnNewMenu_1);
 		
-		/* Menu to find a previous Case */
+		/* Menu to find a previous Case. */
 		JMenu mnNewMenu_1_2 = new JMenu("Previous Case");
 		mnNewMenu_1_2.addMouseListener(new MouseAdapter() {
 			@Override
@@ -69,7 +71,7 @@ public class AdministratorPage extends JFrame {
 			}
 		});
 		mnNewMenu_1.add(mnNewMenu_1_2);
-		/* Menu to find a Student */
+		/* Menu to find a Student. */
 		JMenu mnNewMenu_1_3 = new JMenu("Student");
 		mnNewMenu_1_3.addMouseListener(new MouseAdapter() {
 			@Override
@@ -86,7 +88,7 @@ public class AdministratorPage extends JFrame {
 			}
 		});
 		mnNewMenu_1.add(mnNewMenu_1_3);
-		/* Menu to find Teacher */
+		/* Menu to find a Teacher. */
 		JMenu mnNewMenu_1_4 = new JMenu("Teacher");
 		mnNewMenu_1_4.addMouseListener(new MouseAdapter() {
 			@Override
@@ -103,7 +105,7 @@ public class AdministratorPage extends JFrame {
 			}
 		});
 		mnNewMenu_1.add(mnNewMenu_1_4);
-		/* Menu to find a School */
+		/* Menu to find a School. */
 		JMenu mnNewMenu_1_5 = new JMenu("School");
 		mnNewMenu_1_5.addMouseListener(new MouseAdapter() {
 			@Override
@@ -121,7 +123,7 @@ public class AdministratorPage extends JFrame {
 			}
 		});
 		mnNewMenu_1.add(mnNewMenu_1_5);
-		/* Menu to find a Hospital in the area of the given School */
+		/* Menu to find a Hospital in the area of the given School. */
 		JMenu mnNewMenu_1_6 = new JMenu("Hospital");
 		mnNewMenu_1_6.addMouseListener(new MouseAdapter() {
 			@Override
@@ -142,7 +144,7 @@ public class AdministratorPage extends JFrame {
 		
 		JMenu mnNewMenu_2 = new JMenu("View data");
 		menuBar.add(mnNewMenu_2);
-		
+		/* Menu to view All Cases entered in the Application. */
 		JMenu mnNewMenu_2_2 = new JMenu("All Cases");
 		mnNewMenu_2_2.addMouseListener(new MouseAdapter() {
 			@Override
@@ -151,7 +153,7 @@ public class AdministratorPage extends JFrame {
 			}
 		});
 		mnNewMenu_2.add(mnNewMenu_2_2);
-		
+		/* Menu to view All Students registered in the Application. */
 		JMenu mnNewMenu_2_3 = new JMenu("All Students");
 		mnNewMenu_2_3.addMouseListener(new MouseAdapter() {
 			@Override
@@ -160,7 +162,7 @@ public class AdministratorPage extends JFrame {
 			}
 		});
 		mnNewMenu_2.add(mnNewMenu_2_3);
-		
+		/* Menu to view All Teachers registered in the Application. */
 		JMenu mnNewMenu_2_4 = new JMenu("All Teachers");
 		mnNewMenu_2_4.addMouseListener(new MouseAdapter() {
 			@Override
@@ -169,7 +171,7 @@ public class AdministratorPage extends JFrame {
 			}
 		});
 		mnNewMenu_2.add(mnNewMenu_2_4);
-		
+		/* Menu to view All Schools registered in the Application. */
 		JMenu mnNewMenu_2_5 = new JMenu("All Schools");
 		mnNewMenu_2_5.addMouseListener(new MouseAdapter() {
 			@Override
@@ -178,7 +180,7 @@ public class AdministratorPage extends JFrame {
 			}
 		});
 		mnNewMenu_2.add(mnNewMenu_2_5);
-		
+		/* Menu to view All reference Hospitals for COVID-19. */
 		JMenu mnNewMenu_2_6 = new JMenu("All Hospitals");
 		mnNewMenu_2_6.addMouseListener(new MouseAdapter() {
 			@Override
@@ -187,7 +189,7 @@ public class AdministratorPage extends JFrame {
 			}
 		});
 		mnNewMenu_2.add(mnNewMenu_2_6);
-		
+		/* Menu to Log out of the Administrator's window. */
 		JMenu mnNewMenu_3 = new JMenu("Log out");
 		mnNewMenu_3.addMouseListener(new MouseAdapter() {
 			@Override

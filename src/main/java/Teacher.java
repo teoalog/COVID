@@ -91,7 +91,7 @@ public class Teacher {
 			JOptionPane.showMessageDialog(null, allteachers.get(i).toString());
 		}
 	}
-	
+	/* This method finds a Teacher by searching with the Teacher ID that it gets as a parameter. */
 	public static Teacher findTeacher(int code) {
 		boolean flag = false;
 		int i = 0;

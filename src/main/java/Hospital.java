@@ -42,7 +42,7 @@ public class Hospital {
 		}
 	}
 	
-	/*finds the nearest hospital for the patient*/
+	/* Finds the nearest hospital for the patient getting the Schhol ID as a parameter. */
 	public static Hospital findHospital(int schoolid) {
 		boolean flag = false;
 		int position = -1;

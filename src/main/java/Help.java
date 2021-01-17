@@ -6,9 +6,7 @@ public class Help extends JFrame {
 	private JPanel phelp;
 	private JFrame fhelp;
 
-	/**
-	 * Create the frame.
-	 */
+	/* Create the frame */
 	public Help() {
 		phelp = new JPanel();
 		fhelp = new JFrame();
@@ -19,5 +17,6 @@ public class Help extends JFrame {
 		fhelp.getContentPane().add(phelp);
 		phelp.setLayout(null);
 	}
+	/* Shows instruction for the user of the application. */
 
 }

@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;//interface 
 import java.nio.file.Paths;
 
+/* Through this class we manage to read data from files (for students, schools, passwords etc) */
+
 public class Read { 
 	static int f = 1;
 	static int position_s = 0;

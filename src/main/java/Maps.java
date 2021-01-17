@@ -14,9 +14,7 @@ public class Maps extends JFrame {
 	private JPanel pmaps;
 	private JFrame fmaps;
 
-	/**
-	 * Create the frame.
-	 */
+	/* Create the frame. */
 	public Maps() {
 		pmaps = new JPanel();
 		fmaps = new JFrame();
@@ -27,6 +25,6 @@ public class Maps extends JFrame {
 		fmaps.getContentPane().add(pmaps);
 		pmaps.setLayout(null);
 	}
-	
+	/* Display maps showing the situation of each school (closed or open due to COVID-19) */
 
 }

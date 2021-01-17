@@ -9,7 +9,9 @@ public class Student {
 	private int schoolid;
 	private String parentphone;
 	private String gender;
-	private String status = "negative"; // to check if a student is infected with covid-19
+	/* This variable checks if a student is infected with covid-19. 
+	 * Initially every student registered is negative, but if found positive to COVID-19 the status changes. */
+	private String status = "negative"; 
 	protected static ArrayList<Student> allstudents = new ArrayList<Student> ();
 	
 	
@@ -92,7 +94,7 @@ public class Student {
 			JOptionPane.showMessageDialog(null, allstudents.get(i).toString());
 		}
 	}
-
+	/* This method finds a Student by searching with the Student ID that it gets as a parameter. */
 	public static Student findStudent(int code) {
 		boolean flag = false;
 		int i = 0;

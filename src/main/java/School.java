@@ -15,7 +15,7 @@ public class School {
 	private static boolean schoolisclosed = false;
 	protected ArrayList<LocalDate> datesofcases = new ArrayList<LocalDate>();
 	
-	//Constructor of School objects
+	/* Constructor of School objects. */
 	
 	public School(char area, String nameofschool, int casesinaschool, boolean schoolisclosed) {
 		this.area = area;
@@ -77,9 +77,7 @@ public class School {
 		}
 	}
 	
-	/*This method finds in which school the student/teacher
-	 * who was diagnosed with covid studies/works
-	 */
+	/*This method finds in which school the student/teacher who was diagnosed with covid studies/works */
 	
 	public static int findSchool(int sid) {
 		int i = 0;
@@ -96,9 +94,7 @@ public class School {
 		}
 	}
 	
-	/*This method removes the inactive cases of a school
-	 * from the array list
-	 */
+	/*This method removes the inactive cases of a school from the array list. */
 	public static void checkDates(int id) {
 		boolean flag = false;
 		int i = 0;
@@ -118,9 +114,7 @@ public class School {
 		
 	}
 	
-	/*This method increases the total amount of
-	 * cases in a school
-	 */
+	/*This method increases the total amount of cases in a school. */
 	public static void addCaseInSchool(int x) {
 		if (x != -1) {
 			checkDates(allschools.get(x).schoolid);	

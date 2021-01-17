@@ -19,9 +19,7 @@ public class Login extends JFrame {
 	private String passw;
 	private static final String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
 
-	/**
-	 * Create the frame.
-	 */
+	/* Create the frame. */
 	public Login() {
 		plogin = new JPanel();
 		flogin = new JFrame();
@@ -91,7 +89,7 @@ public class Login extends JFrame {
 		
 		
 	}
-
+	/* The following method checks if the email address is valid. */
 	protected boolean isValidEmailAddress(String email) {
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(email);

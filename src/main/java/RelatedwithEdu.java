@@ -6,9 +6,7 @@ public class RelatedwithEdu extends JFrame {
 	private JPanel pedu;
 	private JFrame fedu;
 
-	/**
-	 * Create the frame.
-	 */
+	/* Create the frame. */
 	public RelatedwithEdu() {
 		pedu = new JPanel();
 		fedu = new JFrame();
@@ -20,4 +18,5 @@ public class RelatedwithEdu extends JFrame {
 		pedu.setLayout(null);
 
 	}
+	/* Show information for COVID-19 related with Education. */
 }

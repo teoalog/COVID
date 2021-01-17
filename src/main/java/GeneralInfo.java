@@ -12,9 +12,7 @@ public class GeneralInfo extends JFrame {
 	private JPanel pgeneralinfo;
 	private JFrame fgeneralinfo;
 
-	/**
-	 * Create the frame.
-	 */
+	/* Create the frame. */
 	public GeneralInfo() {
 		pgeneralinfo = new JPanel();
 		fgeneralinfo = new JFrame();
@@ -27,5 +25,5 @@ public class GeneralInfo extends JFrame {
 		
 		
 	}
-
+	/* Show general information for COVID-19. */
 }
