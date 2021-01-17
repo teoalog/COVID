@@ -1,5 +1,8 @@
 import java.awt.EventQueue;
+
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import java.awt.event.MouseAdapter;
@@ -34,8 +37,12 @@ public class GUI {
 		
 		frmCovidSchoolApp = new JFrame();
 		frmCovidSchoolApp.setTitle("COVID-19 School App");
-		frmCovidSchoolApp.setBounds(400, 200, 750, 400);
+		frmCovidSchoolApp.setBounds(300, 150, 880, 500);
 		frmCovidSchoolApp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		ImageIcon img = new ImageIcon("background.jpeg");
+		JLabel background = new JLabel(img);
+		frmCovidSchoolApp.add(background);
 		
 		/* Setting up the menu */
 		JMenuBar menuBar = new JMenuBar();

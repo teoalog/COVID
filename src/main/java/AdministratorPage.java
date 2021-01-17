@@ -1,7 +1,9 @@
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
@@ -23,11 +25,15 @@ public class AdministratorPage extends JFrame {
 		padmin = new JPanel();
 		fadmin = new JFrame();
 		fadmin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		fadmin.setBounds(530, 240, 500, 300);
+		fadmin.setBounds(500, 220, 500, 380);
 		fadmin.setVisible(true);
 		fadmin.setTitle("Welcome!");
 		fadmin.getContentPane().add(padmin);
 		padmin.setLayout(null);
+		
+		ImageIcon img = new ImageIcon("backgroundadmin.jpeg");
+		JLabel background = new JLabel(img);
+		fadmin.add(background);
 		
 		JMenuBar menuBar = new JMenuBar();
 		fadmin.setJMenuBar(menuBar);

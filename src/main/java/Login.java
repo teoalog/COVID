@@ -50,7 +50,7 @@ public class Login extends JFrame {
 		
 		JButton lbutton = new JButton("Log In");
 		lbutton.addActionListener(new ActionListener() {
-			/* When the Login Button is clicked, we check if the schoolid and the password is correct.
+			/* NEEDS TO BE DONE: When the Login Button is clicked, we check if the schoolid and the password is correct.
 			 * If so we open the Administrator page, and otherwise we ask for another try */
 			public void actionPerformed(ActionEvent e) {
 				try {
