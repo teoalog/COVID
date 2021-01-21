@@ -5,7 +5,6 @@ import java.net.URISyntaxException;
 
 import javax.swing.JOptionPane;
 
-
 public class Graphs {
 
 	private Desktop web = Desktop.getDesktop();
