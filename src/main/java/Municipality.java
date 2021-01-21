@@ -49,8 +49,8 @@ public class Municipality {
     		boolean flag2 = false;
     		while (j < allMunicipalities.get(i).schools.size() && flag2 == false) {
     			if (allMunicipalities.get(i).schools.get(j).getSchoolid() == id &&  allMunicipalities.get(i).schools.get(j).getSchoolisclosed() == true) {
-					System.out.println("The school " + allmunicipalities.get(i).schools.get(j).getNameofschool() + "is closed.");
-    					allmunicipalities.get(i).closedschools++;
+					System.out.println("The school " + allMunicipalities.get(i).schools.get(j).getNameofschool() + "is closed.");
+    					allMunicipalities.get(i).closedSchools++;
     					flag2 = true;
     					flag1 = true;
     			}
