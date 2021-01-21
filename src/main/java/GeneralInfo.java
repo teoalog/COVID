@@ -22,8 +22,6 @@ public class GeneralInfo extends JFrame {
 		fgeneralinfo.setTitle("General information about SARS-CoV-2");
 		fgeneralinfo.getContentPane().add(pgeneralinfo);
 		pgeneralinfo.setLayout(null);
-		
-		
 	}
-	/* Show general information for COVID-19. */
+	/* Show general information about COVID-19. */
 }
