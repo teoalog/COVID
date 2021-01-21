@@ -9,22 +9,21 @@ public class Class {
 	private String name;
 	protected static ArrayList<Class> allclasses = new ArrayList<Class>();
 	
-	public Class( int id, String name) {
+	public Class(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
 		allclasses.add(this);
 	}
 
-	public void setCases() { 
-		                                                           
-		for(int i = 0; i < students.size(); i++) {
+	public void setCases() {                                                
+		for (int i = 0; i < students.size(); i++) {
 			if (students.get(i).getStatus().contentEquals("positive")) {
 				cases++;
 			}
 		}
-		for(int i = 0; i < teachers.size(); i++) {
-			if( teachers.get(i).getStatus().contentEquals("positive")) {
+		for (int i = 0; i < teachers.size(); i++) {
+			if (teachers.get(i).getStatus().contentEquals("positive")) {
 				cases++;
 			}
 		}		
@@ -38,10 +37,6 @@ public class Class {
 	public int getId() {
 		return id;
 	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 	
 	public String getName() {
 		return name;
@@ -51,21 +46,21 @@ public class Class {
 		this.name = name;
 	}
 	
-		@Override
+	@Override
 	public String toString() {
-		return "Class [id=" + id + "]";
+		return "Class: " + id;
 	}
-	/*This method returns a Class object.
-	 * The student who was diagnosed with covid
+
+	/* This method returns a Class object.
+	 * The student who was diagnosed with COVID-19
 	 * belongs to this class.
-	 */
-			
+	 */	
 	public static Class findClass(Student s)	{
 		boolean flag = false;
 		int i = 0;
 		while (i < allclasses.size() && flag == false) {
 			int j = 0;
-			while(j < allclasses.get(i).students.size() && flag == false) {
+			while (j < allclasses.get(i).students.size() && flag == false) {
 				if (allclasses.get(i).students.get(j).equals(s)) {
 					flag = true;
 					return allclasses.get(i);
@@ -75,20 +70,19 @@ public class Class {
 			i ++;
 		}
 		return null;
-		
 	}
 	
-	/*This method returns a Class object
-	 * The teacher who was diagnosed with covid
+	/* This method returns a Class object
+	 * The teacher who was diagnosed with COVID-19
 	 * teaches in this class.
 	 */
 	
-	public static Class findClass(Teacher t){
+	public static Class findClass(Teacher t) {
 		boolean flag = false;
 		int i = 0;
 		while (i < allclasses.size() && flag == false) {
 			int j = 0;
-			while(j < allclasses.get(i).teachers.size() && flag == false) {
+			while (j < allclasses.get(i).teachers.size() && flag == false) {
 				if (allclasses.get(i).teachers.get(j).equals(t)) {
 					flag = true;
 					return allclasses.get(i);
@@ -98,7 +92,5 @@ public class Class {
 			i ++;
 		}
 		return null;
-		
 	}
-
 }
