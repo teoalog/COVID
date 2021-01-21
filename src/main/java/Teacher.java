@@ -36,24 +36,12 @@ public class Teacher {
 		return surname;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 	
 	public int getSchoolid() {
@@ -68,22 +56,14 @@ public class Teacher {
 		return phonenumber;
 	}
 
-	public void setPhonenumber(String phonenumber) {
-		this.phonenumber = phonenumber;
-	}
-
 	public String getGender() {
 		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
 	}
 
 	@Override
 	public String toString() {
 		String s = "Teacher";
-		return "Surname: " + surname + "\nName: " + name + "\nID: " + id + "\nCOVID-19 Status: " + status;
+		return "Surname: " + surname + "\nName: " + name + "\nID: " + id + "\nCOVID-19 Status: " + status + "\n";
 	}
 	
 	public static void getAllteachers() {
@@ -91,27 +71,24 @@ public class Teacher {
 			JOptionPane.showMessageDialog(null, allteachers.get(i).toString());
 		}
 	}
-	/* This method finds a Teacher by searching with the Teacher ID that it gets as a parameter. */
+
+	/* This method finds a Teacher by searching using the Teacher ID that it gets as a parameter. */
 	public static Teacher findTeacher(int code) {
 		boolean flag = false;
 		int i = 0;
 		int position = -1;
 		while (i < allteachers.size() && flag == false) {
-			if ( allteachers.get(i).getId() == code) {
+			if (allteachers.get(i).getId() == code) {
 				flag = true;
 				position = i;
 			}
 			i++;
 		}
-		if (flag == true) {
+		if (flag) {
 			return allteachers.get(position);
 		} else {
 			return null;
 		}
 		
 	}
-	
-	
-	
-
 }
