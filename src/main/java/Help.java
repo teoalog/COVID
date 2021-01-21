@@ -17,6 +17,5 @@ public class Help extends JFrame {
 		fhelp.getContentPane().add(phelp);
 		phelp.setLayout(null);
 	}
-	/* Shows instruction for the user of the application. */
-
+	/* Shows instructions for the user of the application. */
 }
