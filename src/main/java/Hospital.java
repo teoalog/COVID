@@ -4,41 +4,33 @@ import javax.swing.JOptionPane;
 
 public class Hospital {
 
-	private String nameofhospital;
+	private String nameOfHospital;
 	private char area;
-	protected static ArrayList<Hospital> allhospitals = new ArrayList<Hospital>(); /*all hospitals are saved in an array list*/
 	private static int count; /*counts the number of hospitals*/
+	protected static ArrayList<Hospital> allHospitals = new ArrayList<Hospital>(); /*all hospitals are saved in an ArrayList*/
 	
-	public Hospital(String nameofhospital, char area) {
-		this.nameofhospital = nameofhospital;
+	public Hospital(String nameOfHospital, char area) {
+		this.nameOfHospital = nameOfHospital;
 		this.area =  area;
-		allhospitals.set(count, this);
+		allHospitals.set(count, this);
 		count++;
 	}
 	 
-	public String getNameofhospital() {
-		return nameofhospital;
-	}
-	
-	public void setNameofhospital() {
-		this.nameofhospital = nameofhospital;
+	public String getNameOfHospital() {
+		return nameOfHospital;
 	}
 	
 	public char getArea() {
 		return area;
 	}
 	
-	public void setArea() {
-		this.area = area;
-	}
-	
 	public String toString() {
-		return nameofhospital + " " + area;
+		return nameOfHospital + " " + area;
 	}
 	
-	public static void getAllhospitals() {
-		for (int i = 0; i < allhospitals.size(); i++) {
-			JOptionPane.showMessageDialog(null, allhospitals.get(i).toString());
+	public static void getAllHospitals() {
+		for (int i = 0; i < allHospitals.size(); i++) {
+			JOptionPane.showMessageDialog(null, allHospitals.get(i).toString());
 		}
 	}
 	
@@ -46,8 +38,8 @@ public class Hospital {
 	public static Hospital findHospital(int schoolid) {
 		boolean flag = false;
 		int position = -1;
-		for	(int i = 0; i < allhospitals.size(); i++) {
-			if (allhospitals.get(i).area == School.allschools.get(schoolid).getArea()) {
+		for	(int i = 0; i < allHospitals.size(); i++) {
+			if (allHospitals.get(i).area == School.allschools.get(schoolid).getArea()) {
 				flag = true;
 				position = i;
 			}
@@ -55,7 +47,7 @@ public class Hospital {
 		if (flag == false) {
 			return null;
 		} else {
-			return allhospitals.get(position);
+			return allHospitals.get(position);
 		}
 	}
 }
