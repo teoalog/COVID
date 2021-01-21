@@ -70,7 +70,7 @@ public class GUI {
 		});
 		mnNewMenu_1.add(mntmNewMenuItem);
 		
-		JMenu mntmNewMenuItem_1 = new JMenu("Related with Education");
+		JMenu mntmNewMenuItem_1 = new JMenu("Related to Education");
 		mntmNewMenuItem_1.addMouseListener(new MouseAdapter() {
 			/* When this menu is clicked, it goes to the Window Information related to Education and COVID-19 */
 			@Override
@@ -133,8 +133,5 @@ public class GUI {
 			}
 		});
 		menuBar.add(mnNewMenu_4);
-		
-		
-	}
-		
+	}	
 }
