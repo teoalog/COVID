@@ -46,9 +46,9 @@ public class AdministratorPage extends JFrame {
 				Object option = JOptionPane.showInputDialog(null, "Would you like to add a COVID-19 case referring to a Student or a Teacher?", 
 						"Choose an option", JOptionPane.DEFAULT_OPTION, null, choices, choices[0]);
 				Case.readOption(option);
-				int reply = JOptionPane.showConfirmDialog(null, "Would you like to notify all contacts of the case? ", 
+				int reply = JOptionPane.showConfirmDialog(null, "Would you like to notify all contacts of the case?", 
 						"Send notification message", JOptionPane.YES_NO_OPTION);
-				if(reply == JOptionPane.YES_OPTION) {
+				if (reply == JOptionPane.YES_OPTION) {
 					Messages m = new Messages(option);					
 				} else {
 					
@@ -204,9 +204,5 @@ public class AdministratorPage extends JFrame {
 			}
 		});
 		menuBar.add(mnNewMenu_3);
-		
-		
-		
-	
 	}
 }
