@@ -59,9 +59,9 @@ public class Login extends JFrame {
 					JOptionPane.showMessageDialog(null, "Wrong School ID or Password", "Please try again.", JOptionPane.ERROR_MESSAGE);
 				} finally {
 					flogin.dispose();
-					JOptionPane.showMessageDialog(null, "We redirecting you to the Administrator's page. \nPlease wait...");
+					JOptionPane.showMessageDialog(null, "We are redirecting you to the Administrator's page.\nPlease wait...");
 					AdministratorPage admin = new AdministratorPage();
-			}
+				}
 			}
 		});
 		lbutton.setBounds(191, 97, 80, 25);
@@ -72,11 +72,11 @@ public class Login extends JFrame {
 			/* When the Forgot Password Button is clicked, the user enters a contact email.
 			 * We check if it is correct and we inform the user. */
 			public void actionPerformed(ActionEvent e) {
-				String email = JOptionPane.showInputDialog(null, "Write your e-mail and we will contact you for support. \nEmail: ",
+				String email = JOptionPane.showInputDialog(null, "Write your e-mail and we will contact you for support.\nEmail: ",
 						"Don't worry!", JOptionPane.INFORMATION_MESSAGE);
-				while(isValidEmailAddress(email)== false) {
+				while (isValidEmailAddress(email) == false) {
 					JOptionPane.showMessageDialog(null, "Wrong Email address", "Please try again.", JOptionPane.ERROR_MESSAGE);
-					email = JOptionPane.showInputDialog(null, "Write your e-mail and we will contact you for support. \nEmail: ",
+					email = JOptionPane.showInputDialog(null, "Write your e-mail and we will contact you for support.\nEmail: ",
 							"Don't worry!", JOptionPane.INFORMATION_MESSAGE);
 				}
 				JOptionPane.showMessageDialog(null, "Thank you. We will contact you soon.");
@@ -86,14 +86,12 @@ public class Login extends JFrame {
 		});
 		fpbutton.setBounds(142, 134, 137, 29);
 		plogin.add(fpbutton);
-		
-		
 	}
+
 	/* The following method checks if the email address is valid. */
 	protected boolean isValidEmailAddress(String email) {
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(email);
 		return matcher.matches();
-		
 	}
 }
