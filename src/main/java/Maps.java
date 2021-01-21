@@ -26,5 +26,4 @@ public class Maps extends JFrame {
 		pmaps.setLayout(null);
 	}
 	/* Display maps showing the situation of each school (closed or open due to COVID-19) */
-
 }
