@@ -1,10 +1,12 @@
 public class Eody {
+
 	private static Eody eody = null;
 	public int totalcases;
 	
 	private Eody() {
-	 totalcases = 0;
+		totalcases = 0;
 	}
+
 	public static Eody getInstance() {
 	   if (null == eody) {
 		   eody = new Eody();
@@ -14,9 +16,9 @@ public class Eody {
    public int getTotalcases() {
 	  return totalcases;
    }
-/* This method increases the number of total cases when a new case is entered. */
+
+   /* This method increases the number of total cases when a new case is entered. */
    public void addCaseToEody() {
 	  totalcases = totalcases + 1;
    }
-
 }
