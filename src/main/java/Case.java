@@ -1,9 +1,3 @@
-/*
- * Case
- *
- * Copyright 2020 Informaniacs/Athens University of Economics and Business (AUEB)
- */
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -31,10 +25,6 @@ public class Case {
 	
 	public int getId() {
 		return idOfCase;
-	}
-	
-	public void setId(int idOfCase) {
-		this.idOfCase =idOfCase;
 	}
 	
 	public LocalDate getDate() {
@@ -73,8 +63,8 @@ public class Case {
 					"New Case", JOptionPane.INFORMATION_MESSAGE));
 			dd = LocalDate.now();
 			Student st = Student.findStudent(id); //This is the Student Object which refers to our case
-			st.setStatus("positive");//Changing student's status
-			cl = Class.findClass(st);//This is the Class Object which refers to our student's class
+			st.setStatus("positive"); //Changing student's status
+			cl = Class.findClass(st); //This is the Class Object which refers to our student's class
 		    cl.setCases(); //updates the total  amount of cases in this class
 			school = School.findSchool(st.getSchoolid()); //The position of school in the array list that includes all schools
 			School.addCaseInSchool(school); //Adds the new case in the school of the student
@@ -86,15 +76,15 @@ public class Case {
 			id = Integer.parseInt(JOptionPane.showInputDialog(null, "Please fill in the following fields: \nTeacher ID: ",
 					"New Case", JOptionPane.INFORMATION_MESSAGE));
 			dd = LocalDate.now();
-			Teacher t = Teacher.findTeacher(id);//This is the Teacher Object which refers to our case
-			t.setStatus("positive");//Changing teacher's status
-			cl = Class.findClass(t);//This is the Class Object which refers to our teacher's class
-			cl.setCases();//Updates the total  amount of cases of this class
-			school = School.findSchool(t.getSchoolid());//The position of school in the array list that includes all schools
+			Teacher t = Teacher.findTeacher(id); //This is the Teacher Object which refers to our case
+			t.setStatus("positive"); //Changing teacher's status
+			cl = Class.findClass(t); //This is the Class Object which refers to our teacher's class
+			cl.setCases(); //Updates the total  amount of cases of this class
+			school = School.findSchool(t.getSchoolid()); //The position of school in the array list that includes all schools
 			School.addCaseInSchool(school); //Adds the new case in the school of the teacher
-			Hospital.findHospital(t.getSchoolid());//Looks for a hospital nearby
+			Hospital.findHospital(t.getSchoolid()); //Looks for a hospital nearby
 			gender = t.getGender(); //Saves the gender for statistical purposes
-		    c = new Case(id, dd, gender);//Creates a Case object
+		    c = new Case(id, dd, gender); //Creates a Case object
 		    c.addNewCase(); //Add the new case in the array list
 		}
 		JOptionPane.showMessageDialog(null, "Case succesfully added to database.");
@@ -131,5 +121,4 @@ public class Case {
 		}
 		
 	}
-	
 }
