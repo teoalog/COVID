@@ -87,7 +87,7 @@ public class Student {
 			}
 			i++;
 		}
-		if (flag == true) {
+		if (flag) {
 			return allstudents.get(position);
 		} else {
 			return null;
