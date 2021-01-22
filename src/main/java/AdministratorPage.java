@@ -191,7 +191,7 @@ public class AdministratorPage extends JFrame {
 		mnNewMenu_2_6.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Hospital.getAllhospitals();
+				Hospital.getAllHospitals();
 			}
 		});
 		mnNewMenu_2.add(mnNewMenu_2_6);

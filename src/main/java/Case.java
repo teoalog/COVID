@@ -119,6 +119,5 @@ public class Case {
 		} else {
 			return null;
 		}
-		
 	}
 }

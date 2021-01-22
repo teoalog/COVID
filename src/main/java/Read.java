@@ -42,8 +42,8 @@ public class Read {
 					Municipality m = new Municipality(ar[0],Integer.parseInt(ar[1]),Integer.parseInt(ar[2]));
 					System.out.println(m);	
 				} else if (choice.contentEquals("Hospital")) {
-					String ar[] = line.split("," , 2);
-					Hospital h = new Hospital(ar[0],ar[1]);
+					String ar[] = line.split(",", 2);
+					Hospital h = new Hospital(ar[0], ar[1]);
 					System.out.println(h);				
 				}
 				line = br.readLine(); //read the next line

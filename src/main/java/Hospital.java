@@ -5,11 +5,11 @@ import javax.swing.JOptionPane;
 public class Hospital {
 
 	private String nameOfHospital;
-	private char area;
+	private String area;
 	private static int count; /*counts the number of hospitals*/
 	protected static ArrayList<Hospital> allHospitals = new ArrayList<Hospital>(); /*all hospitals are saved in an ArrayList*/
 	
-	public Hospital(String nameOfHospital, char area) {
+	public Hospital(String nameOfHospital, String area) {
 		this.nameOfHospital = nameOfHospital;
 		this.area =  area;
 		allHospitals.set(count, this);
@@ -20,7 +20,7 @@ public class Hospital {
 		return nameOfHospital;
 	}
 	
-	public char getArea() {
+	public String getArea() {
 		return area;
 	}
 	
@@ -39,7 +39,7 @@ public class Hospital {
 		boolean flag = false;
 		int position = -1;
 		for	(int i = 0; i < allHospitals.size(); i++) {
-			if (allHospitals.get(i).area == School.allschools.get(schoolid).getArea()) {
+			if (allHospitals.get(i).area.equals(School.allschools.get(schoolid).getArea())) {
 				flag = true;
 				position = i;
 			}
