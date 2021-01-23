@@ -1,18 +1,17 @@
 public class Eody {
 
-	private static Eody eody = null;
-	public int totalcases;
+	/* Single instance of Eody. */
+	private static Eody instance = new Eody();
+	private static int totalcases;
 	
 	private Eody() {
 		totalcases = 0;
 	}
-
+	/* Return the single instance of Eody. */
 	public static Eody getInstance() {
-	   if (null == eody) {
-		   eody = new Eody();
-	   }
-	   return eody;
+	   return instance;
    }
+
    public int getTotalcases() {
 	  return totalcases;
    }
