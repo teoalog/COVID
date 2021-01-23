@@ -18,7 +18,7 @@ public class School {
 	public static ArrayList<School> allschools = new ArrayList<School>();
 	public static ArrayList<String> allpasswords = new ArrayList<String>();
 	
-	public School(int schoolid,String area, String nameofschool, int casesinaschool, String password) {
+	public School(int schoolid, String area, String nameofschool, int casesinaschool, String password) {
 		this.schoolid = schoolid;
 		this.area = area;
 		this.nameofschool = nameofschool;
@@ -29,11 +29,11 @@ public class School {
 		count ++;
 	}
 	
-	public String getPassword() {
+	private String getPassword() {
 		return password;
 	}
 	
-	public void setPassword(String password) {
+	private void setPassword(String password) {
 		this.password = password;
 	}
 	
@@ -67,7 +67,7 @@ public class School {
 	
 	public String toString() {
 		String s = "School";
-		return "Name: " + nameofschool + "\nArea: " + area + "\nSchool ID: " + schoolid + "Status of School: " + schoolisclosed;
+		return "Name: " + nameofschool + "\nArea: " + area + "\nSchool ID: " + schoolid + "\nStatus of School: " + schoolisclosed + "\n";
 	}
 	
 	public static void getAllschools() {
@@ -119,9 +119,9 @@ public class School {
 			checkDates(allschools.get(x).schoolid);	
 			allschools.get(x).casesinschool++;
 			allschools.get(x).datesofcases.add(LocalDate.now());
-		if (allschools.get(x).casesinschool > 5) {
-			schoolisclosed = true;
-		}
+			if (allschools.get(x).casesinschool > 5) {
+				schoolisclosed = true;
+			}
 		} 
 	}	
 }
