@@ -1,7 +1,10 @@
+package covid;
+
 import java.util.ArrayList;
 
 public class Class {
-	
+	static int k1 = 0;
+	static int k2 = 0;
 	protected ArrayList<Student> students = new ArrayList<Student>();
 	protected ArrayList<Teacher> teachers = new ArrayList<Teacher>();
 	private int id ;
@@ -14,6 +17,14 @@ public class Class {
 		this.id = id;
 		this.name = name;
 		allclasses.add(this);
+		for(int i=k1; i<k1+5; i++) {
+			students.add(Student.allstudents.get(i));
+		}
+		k1+=5;
+		for(int j=k2; j<k2+2; j++) {
+			teachers.add(Teacher.allteachers.get(j));
+		}
+		k2+=2;
 	}
 
 	public void setCases() {                                                

@@ -1,3 +1,5 @@
+package covid;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -23,28 +25,36 @@ public class Read {
 					String ar[] = line.split(",", 7);  /* we split the elements of each line 
 					                                      based on the commas and we put each 
 					                                      element in an array */
-					Student s = new Student(Integer.parseInt(ar[0]),ar[1],ar[2],ar[3],ar[4],Integer.parseInt((ar[5]), Integer.parseInt(ar[6]))); //��������� ��� ����������� Student.
+					Student s = new Student(Integer.parseInt(ar[0]),ar[1],ar[2],ar[3],ar[4],Integer.parseInt(ar[5])); //��������� ��� ����������� Student.
 					System.out.println(s);
 				} else if (choice.contentEquals("Teacher")){ // the teachers file. 
 					String ar[] = line.split(",", 6);
-					Teacher t = new Teacher(ar[1],ar[2],Integer.parseInt(ar[0]),ar[3],ar[4],Integer.parseInt(ar[5])); 
+					Teacher t = new Teacher(Integer.parseInt(ar[0]),ar[1],ar[2],ar[3],ar[4],Integer.parseInt(ar[5])); 
 					System.out.println(t);
 				} else if (choice.contentEquals("Class")) { // the classes file
 					// for the classes.
-					
-			    } else if (choice.contentEquals("Grade")) { // the grades file
-					
-					
+					String ar[] = line.split(",", 2);
+					Class c = new Class(Integer.parseInt(ar[0]),ar[1]);
+					System.out.println(c);
+					for(Student student : c.students) {
+						System.out.println(student);
+					}
+					for(Teacher teacher : c.teachers) {
+						System.out.println(teacher);
+					}
 				} else if (choice.contentEquals("School")) { //the schools file
-				
+					String ar[] = line.split(",", 6);
+					School s = new School(Integer.parseInt(ar[0]),ar[1],ar[2],Integer.parseInt(ar[3]),ar[4]);
+					System.out.println(s);
+					
 				} else if(choice.contentEquals("Municipality")) { //the municipalities file
 					String ar[] = line.split(",", 3);
-					Municipality m = new Municipality(ar[0],Integer.parseInt(ar[1]),Integer.parseInt(ar[2]));
-					System.out.println(m);	
+					
+					System.out.println();	
 				} else if (choice.contentEquals("Hospital")) {
 					String ar[] = line.split(",", 2);
-					Hospital h = new Hospital(ar[0], ar[1]);
-					System.out.println(h);				
+					
+					System.out.println();				
 				}
 				line = br.readLine(); //read the next line
 			}	    

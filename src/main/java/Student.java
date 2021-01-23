@@ -1,3 +1,5 @@
+package covid;
+
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -15,7 +17,7 @@ public class Student {
 	protected static ArrayList<Student> allstudents = new ArrayList<Student> ();
 	
 	
-	public Student(int id ,String surname, String name, String parentphone , String gender ,int schoolid) {
+	public Student(int id ,String surname, String name, String gender , String parentphone ,int schoolid) {
 		super();
 		this.surname = surname;
 		this.name = name;
