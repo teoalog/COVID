@@ -1,0 +1,4 @@
+1,Pierce,Agia Paraskevi,0,school1
+2,5th Glyfada,Glyfada,0,school2
+3,CGS,Pallini,0,school3
+4,Moraitis,Psychiko,0,school4
