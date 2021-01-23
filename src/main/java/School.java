@@ -10,18 +10,31 @@ public class School {
 	private static int count;
 	private int schoolid;
 	private static boolean schoolisclosed = false;
+	private String password;
 	protected static ArrayList <Student> allstudents = new ArrayList <Student>();
 	protected static ArrayList <Teacher> faculty = new ArrayList <Teacher>();
+	protected static ArrayList<Class> classes = new ArrayList<Class>();
 	protected ArrayList<LocalDate> datesofcases = new ArrayList<LocalDate>();
 	public static ArrayList<School> allschools = new ArrayList<School>();
+	public static ArrayList<String> allpasswords = new ArrayList<String>();
 	
-	public School(String area, String nameofschool, int casesinaschool, boolean schoolisclosed) {
+	public School(int schoolid,String area, String nameofschool, int casesinaschool, String password) {
+		this.schoolid = schoolid;
 		this.area = area;
 		this.nameofschool = nameofschool;
-		this.schoolisclosed = schoolisclosed;
 		this.casesinschool = casesinschool;
-		allschools.set(count, this);
+		this.password = password;
+		allschools.add(this);
+		allpasswords.add(password);
 		count ++;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	public int getCasesinschool() {
