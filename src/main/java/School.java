@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 public class School {
 	private int casesinschool = 0;
-	private char area;
+	private String area;
 	private String nameofschool;
 	private static int count;
 	private int schoolid;
@@ -15,7 +15,7 @@ public class School {
 	protected ArrayList<LocalDate> datesofcases = new ArrayList<LocalDate>();
 	public static ArrayList<School> allschools = new ArrayList<School>();
 	
-	public School(char area, String nameofschool, int casesinaschool, boolean schoolisclosed) {
+	public School(String area, String nameofschool, int casesinaschool, boolean schoolisclosed) {
 		this.area = area;
 		this.nameofschool = nameofschool;
 		this.schoolisclosed = schoolisclosed;
@@ -32,7 +32,7 @@ public class School {
 		this.casesinschool = casesinschool;
 	}
 
-	public char getArea() {
+	public String getArea() {
 		return area;
 	}
 	

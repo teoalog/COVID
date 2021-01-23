@@ -17,6 +17,10 @@ public class GUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					Read.readText("Class.txt", "Class");
+					Read.readText("Teacher.txt", "Teacher");
+					Read.readText("Class.txt", "Class");
+					Read.readText("School.txt", "School");
 					GUI window = new GUI();
 					window.frmCovidSchoolApp.setVisible(true);
 					window.initialize();

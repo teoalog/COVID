@@ -1,5 +1,3 @@
-package covid;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -13,7 +11,7 @@ public class Read {
 	static int f = 1;
 	static int position_s = 0;
 	static int position_t = 0;
-	protected static void readText(String filename, String choice) {
+	public static void readText(String filename, String choice) {
 		Path pathToFile = Paths.get(filename); // we create a Path object from the file's URI to trace it.    
 		try {
 			BufferedReader br = Files.newBufferedReader(pathToFile, StandardCharsets.UTF_8); /* we create a BufferedReader object so that 
@@ -36,10 +34,10 @@ public class Read {
 					String ar[] = line.split(",", 2);
 					Class c = new Class(Integer.parseInt(ar[0]),ar[1]);
 					System.out.println(c);
-					for(Student student : c.students) {
+					for (Student student : c.students) {
 						System.out.println(student);
 					}
-					for(Teacher teacher : c.teachers) {
+					for (Teacher teacher : c.teachers) {
 						System.out.println(teacher);
 					}
 				} else if (choice.contentEquals("School")) { //the schools file
