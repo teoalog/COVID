@@ -37,7 +37,7 @@ public class Login extends JFrame {
 		JTextField username = new JTextField();
 		username.setBounds(100, 20, 165, 25);
 		plogin.add(username);
-		schoolid = username.getText();
+		
 		
 		JLabel password = new JLabel("Password");
 		password.setBounds(10, 50, 80, 25);
@@ -46,7 +46,7 @@ public class Login extends JFrame {
 		JPasswordField enterpass = new JPasswordField();
 		enterpass.setBounds(100, 50, 165, 25);
 		plogin.add(enterpass);
-		passw = enterpass.getText();
+		
 		
 		JButton lbutton = new JButton("Log In");
 		lbutton.addActionListener(new ActionListener() {
@@ -54,9 +54,13 @@ public class Login extends JFrame {
 			 * If so we open the Administrator page, and otherwise we ask for another try */
 			public void actionPerformed(ActionEvent e) {
 				try {
-					while (true) {
-						JOptionPane.showMessageDialog(null, "Wrong School ID or Password", "Please try again.", JOptionPane.ERROR_MESSAGE);
-						break;
+					schoolid = username.getText();
+					passw = enterpass.getText();
+					while (checkCredentials(Integer.parseInt(schoolid), passw) == false) {
+ 						JOptionPane.showMessageDialog(null, "Wrong School ID or Password", "Please try again.", JOptionPane.ERROR_MESSAGE);
+ 						Login ln = new Login();
+ 						schoolid = username.getText();
+						passw = enterpass.getText();
 					}
 					flogin.dispose();
 					JOptionPane.showMessageDialog(null, "We are redirecting you to the Administrator's page.\nPlease wait...");
@@ -95,16 +99,17 @@ public class Login extends JFrame {
 		return matcher.matches();
 	}
 
-	protected boolean checkCredentials(int id, String key) {
+	private boolean checkCredentials(int id, String password) {
 		int pos = School.findSchool(id);
+		System.out.println(pos);
+		System.out.println(School.allpasswords.get(pos));
+		System.out.println(School.allschools.get(pos));
+		System.out.println(id);
+		System.out.println(password);
 		if (pos == -1) {
 			return false;
 		} else {
-			if (key != School.allpasswords.get(pos)) {
-				return false;
-			} else {
-				return true;
-			}
+			return password.equals(School.allpasswords.get(pos));
 		}
 	}
 }
