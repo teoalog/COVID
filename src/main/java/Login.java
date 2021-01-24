@@ -34,7 +34,7 @@ public class Login extends JFrame {
 		user.setBounds(10, 20, 80, 25);
 		plogin.add(user);
 		
-		JTextField username = new JTextField(20);
+		JTextField username = new JTextField();
 		username.setBounds(100, 20, 165, 25);
 		plogin.add(username);
 		schoolid = username.getText();
@@ -54,14 +54,14 @@ public class Login extends JFrame {
 			 * If so we open the Administrator page, and otherwise we ask for another try */
 			public void actionPerformed(ActionEvent e) {
 				try {
-					//if..else
-				} catch (NullPointerException exc) {
-					JOptionPane.showMessageDialog(null, "Wrong School ID or Password", "Please try again.", JOptionPane.ERROR_MESSAGE);
-				} finally {
+					while (true) {
+						JOptionPane.showMessageDialog(null, "Wrong School ID or Password", "Please try again.", JOptionPane.ERROR_MESSAGE);
+						break;
+					}
 					flogin.dispose();
 					JOptionPane.showMessageDialog(null, "We are redirecting you to the Administrator's page.\nPlease wait...");
 					AdministratorPage admin = new AdministratorPage();
-				}
+				} catch (NullPointerException exc) {}
 			}
 		});
 		lbutton.setBounds(191, 97, 80, 25);
@@ -93,5 +93,18 @@ public class Login extends JFrame {
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(email);
 		return matcher.matches();
+	}
+
+	protected boolean checkCredentials(int id, String key) {
+		int pos = School.findSchool(id);
+		if (pos == -1) {
+			return false;
+		} else {
+			if (key != School.allpasswords.get(pos)) {
+				return false;
+			} else {
+				return true;
+			}
+		}
 	}
 }

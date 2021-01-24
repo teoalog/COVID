@@ -72,7 +72,7 @@ public class AdministratorPage extends JFrame {
 					JOptionPane.showMessageDialog(null, "The Case with ID: " + id + " was not found in our Database.");
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Here is the information about the Case you looked for: " + c.toString());
+					JOptionPane.showMessageDialog(null, "Here is the information about the Case you looked for: \n" + c.toString());
 				}
 			}
 		});
@@ -89,7 +89,7 @@ public class AdministratorPage extends JFrame {
 					JOptionPane.showMessageDialog(null, "The Student with ID: " + id + " was not found in our Database.");
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Here is the information about the Student you looked for: " + s.toString());
+					JOptionPane.showMessageDialog(null, "Here is the information about the Student you looked for: \n" + s.toString());
 				}
 			}
 		});
@@ -106,7 +106,7 @@ public class AdministratorPage extends JFrame {
 					JOptionPane.showMessageDialog(null, "The Teacher with ID: " + id + " was not found in our Database.");
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Here is the information about the Teacher you looked for: " + t.toString());
+					JOptionPane.showMessageDialog(null, "Here is the information about the Teacher you looked for: \n" + t.toString());
 				}
 			}
 		});
@@ -121,7 +121,7 @@ public class AdministratorPage extends JFrame {
 				School sch;
 				if (Integer.parseInt(id) != -1) {
 					sch = School.allschools.get(Integer.parseInt(id));
-					JOptionPane.showMessageDialog(null, "Here is the information about the School you looked for: " + sch.toString());
+					JOptionPane.showMessageDialog(null, "Here is the information about the School you looked for: \n" + sch.toString());
 				} else {
 					JOptionPane.showMessageDialog(null, "The School with ID: " + id + " was not found in our Database.");
 					dispose();
@@ -141,7 +141,7 @@ public class AdministratorPage extends JFrame {
 					JOptionPane.showMessageDialog(null, "We are sorry but we did not find a hospital in the area of the School with ID: " + id);
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Here is the information about the Hospital nearest to the School with ID: " 
+					JOptionPane.showMessageDialog(null, "Here is the information about the Hospital nearest to the School with ID: \n" 
 							+ id + "\n" + h.toString());	
 				}
 			}

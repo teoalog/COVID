@@ -108,7 +108,7 @@ public class School {
 				}
 				flag = true;
 			}
-			i ++;
+			i++;
 		}
 		
 	}
