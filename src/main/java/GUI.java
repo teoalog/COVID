@@ -79,7 +79,7 @@ public class GUI {
 			/* When this menu is clicked, it goes to the Window Information related to Education and COVID-19 */
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				RelatedwithEdu edu = new RelatedwithEdu();
+				RelatedToEdu edu = new RelatedToEdu();
 			}
 		});
 		mnNewMenu_1.add(mntmNewMenuItem_1);
