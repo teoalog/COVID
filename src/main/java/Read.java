@@ -1,3 +1,5 @@
+package covid;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -11,7 +13,7 @@ public class Read {
 	static int f = 1;
 	static int position_s = 0;
 	static int position_t = 0;
-	public static void readText(String filename, String choice) {
+	protected static void readText(String filename, String choice) {
 		Path pathToFile = Paths.get(filename); // we create a Path object from the file's URI to trace it.    
 		try {
 			BufferedReader br = Files.newBufferedReader(pathToFile, StandardCharsets.UTF_8); /* we create a BufferedReader object so that 
@@ -34,25 +36,27 @@ public class Read {
 					String ar[] = line.split(",", 2);
 					Class c = new Class(Integer.parseInt(ar[0]),ar[1]);
 					System.out.println(c);
-					for (Student student : c.students) {
+					for(Student student : c.students) {
 						System.out.println(student);
 					}
-					for (Teacher teacher : c.teachers) {
+					for(Teacher teacher : c.teachers) {
 						System.out.println(teacher);
 					}
 				} else if (choice.contentEquals("School")) { //the schools file
-					String ar[] = line.split(",", 6);
-					School s = new School(Integer.parseInt(ar[0]),ar[1],ar[2],Integer.parseInt(ar[3]),ar[4]);
+					String ar[] = line.split(",", 5);
+					fakeschool s = new fakeschool(Integer.parseInt(ar[0]),ar[1],ar[2],Integer.parseInt(ar[3]),ar[4]);
 					System.out.println(s);
-					
+					for(Class c : s.classes) {
+						System.out.println(c);
+					}
 				} else if(choice.contentEquals("Municipality")) { //the municipalities file
-					String ar[] = line.split(",", 3);
-					
-					System.out.println();	
+					String ar[] = line.split(",",5);
+					Municipality m = new Municipality(ar[0],ar[1],Integer.parseInt(ar[2]),Integer.parseInt(ar[3]),Integer.parseInt(ar[4]));
+					System.out.println(m);	
 				} else if (choice.contentEquals("Hospital")) {
 					String ar[] = line.split(",", 2);
-					
-					System.out.println();				
+					Hospital h = new Hospital(ar[0],ar[1]);
+					System.out.println(h);				
 				}
 				line = br.readLine(); //read the next line
 			}	    

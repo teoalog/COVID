@@ -12,7 +12,7 @@ public class Hospital {
 	public Hospital(String nameOfHospital, String area) {
 		this.nameOfHospital = nameOfHospital;
 		this.area =  area;
-		allHospitals.set(count, this);
+		allHospitals.add(this);
 		count++;
 	}
 	 

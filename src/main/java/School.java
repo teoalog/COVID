@@ -1,3 +1,4 @@
+package covid;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -10,15 +11,15 @@ public class School {
 	private static int count;
 	private int schoolid;
 	private static boolean schoolisclosed = false;
-	private String password;
+	private int password;
 	protected static ArrayList <Student> allstudents = new ArrayList <Student>();
 	protected static ArrayList <Teacher> faculty = new ArrayList <Teacher>();
 	protected static ArrayList<Class> classes = new ArrayList<Class>();
 	protected ArrayList<LocalDate> datesofcases = new ArrayList<LocalDate>();
 	public static ArrayList<School> allschools = new ArrayList<School>();
-	public static ArrayList<String> allpasswords = new ArrayList<String>();
+	public static ArrayList<Integer> allpasswords = new ArrayList<Integer>();
 	
-	public School(int schoolid, String area, String nameofschool, int casesinaschool, String password) {
+	public School(int schoolid,String area, String nameofschool, int casesinaschool, int password) {
 		this.schoolid = schoolid;
 		this.area = area;
 		this.nameofschool = nameofschool;
@@ -27,13 +28,17 @@ public class School {
 		allschools.add(this);
 		allpasswords.add(password);
 		count ++;
+		for(int i=k; i<k+3; i++) {
+	    	classes.add(Class.allclasses.get(i));
+	    }
+		k+=3
 	}
 	
-	private String getPassword() {
+	public int getPassword() {
 		return password;
 	}
 	
-	private void setPassword(String password) {
+	public int setPassword(int password) {
 		this.password = password;
 	}
 	
@@ -67,7 +72,7 @@ public class School {
 	
 	public String toString() {
 		String s = "School";
-		return "Name: " + nameofschool + "\nArea: " + area + "\nSchool ID: " + schoolid + "\nStatus of School: " + schoolisclosed + "\n";
+		return "Name: " + nameofschool + "\nArea: " + area + "\nSchool ID: " + schoolid + "Status of School: " + schoolisclosed;
 	}
 	
 	public static void getAllschools() {
@@ -108,7 +113,7 @@ public class School {
 				}
 				flag = true;
 			}
-			i++;
+			i ++;
 		}
 		
 	}
@@ -119,9 +124,9 @@ public class School {
 			checkDates(allschools.get(x).schoolid);	
 			allschools.get(x).casesinschool++;
 			allschools.get(x).datesofcases.add(LocalDate.now());
-			if (allschools.get(x).casesinschool > 5) {
-				schoolisclosed = true;
-			}
+		if (allschools.get(x).casesinschool > 5) {
+			schoolisclosed = true;
+		}
 		} 
 	}	
 }
