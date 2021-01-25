@@ -13,11 +13,11 @@ import java.awt.event.ActionEvent;
 
 public class Login extends JFrame {
 
-	private JPanel plogin;
-	private JFrame flogin;
-	private String schoolid;
-	private String passw;
-	private static final String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+	private static JPanel plogin;
+	private static JFrame flogin;
+	private static String schoolid;
+	private static String passw;
+	private static final String REGEX = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
 
 	/* Create the frame. */
 	public Login() {
@@ -27,7 +27,7 @@ public class Login extends JFrame {
 		flogin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		flogin.setVisible(true);
 		flogin.setTitle("Login");
-		flogin.getContentPane().add(plogin);
+		flogin.add(plogin);
 		plogin.setLayout(null);
 		
 		JLabel user = new JLabel("School ID");
@@ -38,7 +38,6 @@ public class Login extends JFrame {
 		username.setBounds(100, 20, 165, 25);
 		plogin.add(username);
 		
-		
 		JLabel password = new JLabel("Password");
 		password.setBounds(10, 50, 80, 25);
 		plogin.add(password);
@@ -47,29 +46,23 @@ public class Login extends JFrame {
 		enterpass.setBounds(100, 50, 165, 25);
 		plogin.add(enterpass);
 		
-		
 		JButton lbutton = new JButton("Log In");
-		lbutton.addActionListener(new ActionListener() {
-			/* NEEDS TO BE DONE: When the Login Button is clicked, we check if the schoolid and the password is correct.
-			 * If so we open the Administrator page, and otherwise we ask for another try */
-			public void actionPerformed(ActionEvent e) {
-				try {
-					schoolid = username.getText();
-					passw = enterpass.getText();
-					while (checkCredentials(Integer.parseInt(schoolid), passw) == false) {
- 						JOptionPane.showMessageDialog(null, "Wrong School ID or Password", "Please try again.", JOptionPane.ERROR_MESSAGE);
- 						Login ln = new Login();
- 						schoolid = username.getText();
-						passw = enterpass.getText();
-					}
-					flogin.dispose();
-					JOptionPane.showMessageDialog(null, "We are redirecting you to the Administrator's page.\nPlease wait...");
-					AdministratorPage admin = new AdministratorPage();
-				} catch (NullPointerException exc) {}
-			}
-		});
 		lbutton.setBounds(191, 97, 80, 25);
 		plogin.add(lbutton);
+
+		lbutton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					schoolid = username.getText();
+					passw = enterpass.getText();
+					if (checkCredentials(Integer.parseInt(schoolid), passw)) {
+						flogin.dispose();
+						JOptionPane.showMessageDialog(null, "We are redirecting you to the Administrator's page.\nPlease wait...");
+						AdministratorPage admin = new AdministratorPage();
+					} else {
+						JOptionPane.showMessageDialog(null, "Wrong School ID or Password", "Please try again.", JOptionPane.ERROR_MESSAGE);
+					}
+			}
+		});
 		
 		JButton fpbutton = new JButton("Forgot Password?");
 		fpbutton.addActionListener(new ActionListener() {
@@ -94,7 +87,7 @@ public class Login extends JFrame {
 
 	/* The following method checks if the email address is valid. */
 	protected boolean isValidEmailAddress(String email) {
-		Pattern pattern = Pattern.compile(regex);
+		Pattern pattern = Pattern.compile(REGEX);
 		Matcher matcher = pattern.matcher(email);
 		return matcher.matches();
 	}
