@@ -1,0 +1,10 @@
+Asklipieio,Voula
+Attiko,Xaidari
+Evangelismos,Athens
+Metropolitan,Cholargos
+Ippokrateio,Athens
+Paidon,Goudi
+Iatriko,Marousi
+Ygeia,Chalandri
+Sotiria,Ambelokipi
+Tzannio,Piraeus

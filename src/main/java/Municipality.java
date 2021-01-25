@@ -2,20 +2,40 @@ import java.util.ArrayList;
 
 public class Municipality {
 	
+	private int schoolid;
 	private String municipality;
+	private String area;
     private int casesInMunicipality = 0;
     private int closedSchools = 0;
     private static int count = 0;
     protected ArrayList<School> schools = new ArrayList<School>();
     protected static ArrayList<Municipality> allMunicipalities = new ArrayList<Municipality>();
     
-    public Municipality(String municipality, int casesInMunicipality, int closedSchools ) {
+    public Municipality(String municipality, String area, int casesInMunicipality, int closedSchools, int schoolid ) {
     	this.municipality = municipality;
+    	this.area = area;
     	this.casesInMunicipality = casesInMunicipality;
     	this.closedSchools = closedSchools;
-    	allMunicipalities.set(count, this);
+    	this.schoolid = schoolid;
+    	allMunicipalities.add(this);
     	count++;
     }
+    
+    public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+    }
+    
+    public int getSchoolid() {
+		return schoolid;
+	}
+
+	public void setSchoolid(int schoolid) {
+		this.schoolid = schoolid;
+	}
     	
     public String getMunicipality() {
     	return municipality;
@@ -59,4 +79,9 @@ public class Municipality {
     		i ++;
     	}		
     }
+    
+    public String toString() {
+		String s = "Municipality";
+		return "Municipality: " + municipality + "\nArea: " + area + "\nSchool ID: " + schoolid;
+	}
 }

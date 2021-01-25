@@ -1,3 +1,5 @@
+package covid;
+
 import java.util.ArrayList;
 
 public class Class {
@@ -15,14 +17,14 @@ public class Class {
 		this.id = id;
 		this.name = name;
 		allclasses.add(this);
-		for (int i = k1; i < k1 + 5; i++) { //WHAT IS 5?
+		for(int i=k1; i<k1+5; i++) {
 			students.add(Student.allstudents.get(i));
 		}
-		k1 += 5;
-		for (int j=k2; j<k2+2; j++) {
+		k1+=5;
+		for(int j=k2; j<k2+2; j++) {
 			teachers.add(Teacher.allteachers.get(j));
 		}
-		k2 += 2;
+		k2+=2;
 	}
 
 	public void setCases() {                                                
