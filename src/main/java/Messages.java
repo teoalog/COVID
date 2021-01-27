@@ -1,12 +1,32 @@
+package covid;
+
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.TextArea;
 
 public class Messages extends JFrame{
 	
 	private JPanel pmenu;
 	private JFrame fmenu;
-	String stmess = "ATTENTION!"+ "\n" + "A student of the class B1 has been tested positive for COVID-19 and due to NPHO protocols for coronavirus transmission," 
+	
+	/**
+	 * Create the frame.
+	 */
+	public Messages(Object o) {
+		pmenu = new JPanel();
+		fmenu = new JFrame();
+		fmenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		fmenu.setBounds(530, 240, 500, 300);
+		fmenu.setVisible(true);
+		fmenu.setTitle("Message Notification");
+		fmenu.getContentPane().add(pmenu);
+		pmenu.setLayout(null);
+		/* Display the correct message according to the new case added (Student or Teacher) */
+		if (o.equals("Student")) {
+			Student st = Student.findStudent(id);
+			Class cl = Class.findClass(st);
+			String stmess = "ATTENTION!"+ "\n" + "A student of the class " + cl.getName() + " has been tested positive for COVID-19 and due to NPHO protocols for coronavirus transmission," 
 			+ "\n" +  "the students of this class need to abide by the following instructions, in order to prevent the further spread of the virus.\n"
 			+ "\n" + 
 			"* Quarantine for a period of 14 days, before they return to school.\n"
@@ -24,8 +44,13 @@ public class Messages extends JFrame{
 			"The class will be closed during these 14 days and all areas will be thoroughly decontaminated.\n"
 			+ "\n" +
 			"Stay safe!\n";
-	String tmess = "ATTENTION!"+ "\n" + "A teacher has been tested positive for COVID-19 and due to NPHO protocols for coronavirus transmission," 
-			+"\n" + "the students of the classes A2, C3 need to abide by the following instructions, in order to prevent the further spread of the virus." 
+			TextArea textArea = new TextArea(stmess);
+			pmenu.add(textArea);
+		} else {
+			Teacher t = Teacher.findTeacher(id);
+			Class cl = Class.findClass(t);
+			String tmess = "ATTENTION!"+ "\n" + "A teacher has been tested positive for COVID-19 and due to NPHO protocols for coronavirus transmission," 
+			+"\n" + "the students of the class " + cl.getName() + " need to abide by the following instructions, in order to prevent the further spread of the virus." 
 			+ "\n" + "The teacher lectured in those classes for at least 2 hours in the 2 days prior to his showing symptoms.\n"
 			+ "* Quarantine for a period of 14 days, before they return to school.\n"
 			+ "\n"
@@ -42,31 +67,8 @@ public class Messages extends JFrame{
 			"The classes will be closed during these 14 days and all areas will be thoroughly decontaminated.\n"
 			+ "\n" +
 			"Stay safe!\n";
-
-	/**
-	 * Create the frame.
-	 */
-	public Messages(Object o) {
-		pmenu = new JPanel();
-		fmenu = new JFrame();
-		fmenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		fmenu.setBounds(530, 240, 500, 300);
-		fmenu.setVisible(true);
-		fmenu.setTitle("Message Notification");
-		fmenu.getContentPane().add(pmenu);
-		pmenu.setLayout(null);
-		JLabel lblNewLabel1 = new JLabel(stmess);
-		lblNewLabel1.setBounds(6, 6, 488, 243);
-		pmenu.add(lblNewLabel1);
-		/* Display the correct message according to the new case added (Student or Teacher) */
-		if (o.equals("Student")) {
-			JLabel lblNewLabel = new JLabel(stmess);
-			lblNewLabel.setBounds(6, 6, 488, 243);
-			pmenu.add(lblNewLabel);
-		} else {
-			JLabel lblNewLabel = new JLabel(tmess);
-			lblNewLabel.setBounds(6, 6, 488, 243);
-			pmenu.add(lblNewLabel);
+			TextArea textArea = new TextArea(tmess);
+			pmenu.add(textArea);
 		}
 		
 		JButton btnNewButton = new JButton("Send notification");
@@ -74,7 +76,8 @@ public class Messages extends JFrame{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				JOptionPane.showMessageDialog(null, "Notification sent to parents' and teachers' phones. \nStay safe!");
+
+				JOptionPane.showMessageDialog(null, "A notification has been sent to the parents' and teachers' emails.\nStay safe!");
 			}
 		});
 		btnNewButton.setBounds(180, 237, 138, 29);

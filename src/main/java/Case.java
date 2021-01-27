@@ -1,3 +1,5 @@
+package covid;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -50,7 +52,7 @@ public class Case {
 		}
 	}
 	
-	public static void readOption(Object s) {
+	public static boolean readOption(Object s) {
 		int id = 0;
 		LocalDate dd;
 		String gender;
@@ -59,7 +61,7 @@ public class Case {
 		Case c;
 		if (s.equals("Student")) {
 			/* NEEDS TO BE MADE: while statement to check if the correct credentials are entered */
-			id = Integer.parseInt(JOptionPane.showInputDialog(null, "Please fill in the following fields: \nStudent ID: ",
+			id = Integer.parseInt(JOptionPane.showInputDialog(null, "Please fill in the following field: \nStudent ID: ",
 					"New Case", JOptionPane.INFORMATION_MESSAGE));
 			dd = LocalDate.now();
 			Student st = Student.findStudent(id); //This is the Student Object which refers to our case
@@ -72,8 +74,10 @@ public class Case {
 			gender = st.getGender(); //Saves the gender for statistical purposes
 			c = new Case(id, dd, gender); //Creates a Case object
 			c.addNewCase(); //Adds the new case in the array list
+			JOptionPane.showMessageDialog(null, "Case succesfully added to database.");
+			return true;
 		} else {
-			id = Integer.parseInt(JOptionPane.showInputDialog(null, "Please fill in the following fields: \nTeacher ID: ",
+			id = Integer.parseInt(JOptionPane.showInputDialog(null, "Please fill in the following field: \nTeacher ID: ",
 					"New Case", JOptionPane.INFORMATION_MESSAGE));
 			dd = LocalDate.now();
 			Teacher t = Teacher.findTeacher(id); //This is the Teacher Object which refers to our case
@@ -86,8 +90,9 @@ public class Case {
 			gender = t.getGender(); //Saves the gender for statistical purposes
 		    c = new Case(id, dd, gender); //Creates a Case object
 		    c.addNewCase(); //Add the new case in the array list
+		    JOptionPane.showMessageDialog(null, "Case succesfully added to database.");
+		    return false;
 		}
-		JOptionPane.showMessageDialog(null, "Case succesfully added to database.");
 	}
 	
 	/* This method adds a case in the array list of cases. */

@@ -1,3 +1,5 @@
+package covid;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.util.Map;

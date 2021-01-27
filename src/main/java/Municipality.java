@@ -1,3 +1,5 @@
+package covid;
+
 import java.util.ArrayList;
 
 public class Municipality {

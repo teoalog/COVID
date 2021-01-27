@@ -1,3 +1,5 @@
+package covid;
+
 public class Eody {
 
 	/* Single instance of Eody. */

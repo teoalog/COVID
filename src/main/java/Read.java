@@ -44,7 +44,7 @@ public class Read {
 					}
 				} else if (choice.contentEquals("School")) { //the schools file
 					String ar[] = line.split(",", 5);
-					fakeschool s = new fakeschool(Integer.parseInt(ar[0]),ar[1],ar[2],Integer.parseInt(ar[3]),ar[4]);
+					School s = new School(Integer.parseInt(ar[0]),ar[1],ar[2],Integer.parseInt(ar[3]),ar[4]);
 					System.out.println(s);
 					for(Class c : s.classes) {
 						System.out.println(c);
