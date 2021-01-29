@@ -6,7 +6,9 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.InternetAddress;
 
 public class Mail {
-    public static void sendMail(String recipient) {
+
+    /* Send email to given recipient using the corporate email account informaniacsteam@gmail.com. */
+    public static void sendMail(String recipient, String text) {
         Properties properties = new Properties();
 
         properties.put("mail.smtp.auth", "true");
@@ -14,8 +16,8 @@ public class Mail {
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
 
-        String email = "midisspin@gmail.com";
-        String password = "midisspin123";
+        String email = "informaniacsteam@gmail.com";
+        String password = "WeareInformaniacs!";
 
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override
@@ -24,7 +26,7 @@ public class Mail {
             }
         });
 
-        MimeMessage message = prepareMessage(session, email, recipient);
+        MimeMessage message = prepareMessage(session, email, recipient, text);
 
         try {
             Transport.send(message);
@@ -33,21 +35,18 @@ public class Mail {
         }
     }
 
-    public static MimeMessage prepareMessage(Session session, String email, String recipient) {
+    /* Prepares email message using given text. */
+    public static MimeMessage prepareMessage(Session session, String email, String recipient, String text) {
         try {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(email));
             message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(recipient));
-            message.setSubject("COVID case was found in the school!");
-            message.setText("ATTENTION!\nA new case was found!");
+            message.setSubject("A COVID-19 case was found in school!");
+            message.setText(text);
             return message;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
-    }
-
-    public static void main(String args[]) {
-        sendMail("jfurhgjtiuhkgngkg@gmail.com");
     }
 }
